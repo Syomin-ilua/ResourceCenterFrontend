@@ -7,17 +7,24 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { Main } from "./pages/main"
 import { Login } from "./pages/auth/login"
 import { Registration } from "./pages/auth/registration"
+import { Layout } from "./components/layout"
 
 const container = document.getElementById("root")
 
 const router = createBrowserRouter([
     {
-        path: "",
-        element: <Main />
+        path: "/",
+        element: <Layout />,
+        children: [
+            {
+                path: "",
+                element: <Main />
+            }
+        ]
     },
     {
         path: "/auth",
-        element: <>Обёртка контента</>,
+        element: <Layout />,
         children: [
             {
                 path: "sign-in",
@@ -31,7 +38,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/courses',
-        element: <>Обёртка контента</>,
+        element: <Layout />,
         children: [
             {
                 path: "",
@@ -45,7 +52,13 @@ const router = createBrowserRouter([
     },
     {
         path: '/profile',
-        element: <>Личный кабинет пользователя</>,
+        element: <Layout />,
+        children: [
+            {
+                path: "",
+                element: <>Профиль</>
+            }
+        ]
     },
     {
         path: '/admin',

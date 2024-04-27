@@ -1,0 +1,16 @@
+.navLink {
+  font-size: 14px;
+  font-weight: 700;
+  color: #00528F;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  padding: 7px;
+  column-gap: 7px;
+}
+
+.navLink:hover {
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
