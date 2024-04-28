@@ -1,7 +1,6 @@
 import { Container } from "../../components/container";
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
-import { Logo } from "../../components/logo";
 import { Link as NavLink } from "../../components/navlink";
 import { SVG } from "../../components/svg";
 
@@ -11,7 +10,17 @@ export const Header = () => {
         <header className={styles.header}>
             <Container>
                 <div className={styles.wrapper}>
-                    <Logo />
+                    <Link to="/">
+                        <div className={styles.logo__wrapper}>
+                            <div className={styles.logo__icon_wrapper}>
+                                <SVG id="logo-icon"/>
+                            </div>
+                            <div className={styles.logo__text_wrapper}>
+                                <p className={styles.logo__text}>Ресурсный центр
+                                    “Воронеж-ПЛАСТ”</p>
+                            </div>
+                        </div>
+                    </Link>
                     <div className={styles.desktop__nav}>
                         <nav className={styles.nav}>
                             <ul className={styles.nav__list}>
