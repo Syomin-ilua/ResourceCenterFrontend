@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import styles from "./index.module.css";
 import { Link as NavLink } from "../../components/navlink";
 import { SVG } from "../../components/svg";
+import { useAppSelector } from "../../app/hooks";
+import { selectIsAuthenticated } from "../../features/user/userSlice";
+import { UserMenu } from "../../components/user-menu";
 
 export const Header = () => {
+
+    const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
     return (
         <header className={styles.header}>
@@ -13,7 +18,7 @@ export const Header = () => {
                     <Link to="/">
                         <div className={styles.logo__wrapper}>
                             <div className={styles.logo__icon_wrapper}>
-                                <SVG id="logo-icon"/>
+                                <SVG id="logo-icon" />
                             </div>
                             <div className={styles.logo__text_wrapper}>
                                 <p className={styles.logo__text}>Ресурсный центр
@@ -47,16 +52,19 @@ export const Header = () => {
                                 </li>
                             </ul>
                         </nav>
-                        <div className={styles.button__links}>
-                            <Link className={styles.button__link_register} to="/auth/sign-up">
-                                <SVG id="register-icon" />
-                                <p className={styles.button__link_text}>Регистрация</p>
-                            </Link>
-                            <Link className={styles.button__link_login} to="/auth/sign-in">
-                                <SVG id="login-icon" />
-                                <p className={styles.button__link_text}>Войти</p>
-                            </Link>
-                        </div>
+                        {isAuthenticated ?
+                            <UserMenu /> :
+                            <div className={styles.button__links}>
+                                <Link className={styles.button__link_register} to="/auth/sign-up">
+                                    <SVG id="register-icon" />
+                                    <p className={styles.button__link_text}>Регистрация</p>
+                                </Link>
+                                <Link className={styles.button__link_login} to="/auth/sign-in">
+                                    <SVG id="login-icon" />
+                                    <p className={styles.button__link_text}>Войти</p>
+                                </Link>
+                            </div>
+                        }
                     </div>
                 </div>
             </Container>

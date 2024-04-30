@@ -8,6 +8,12 @@ import { Main } from "./pages/main"
 import { Login } from "./pages/auth/login"
 import { Registration } from "./pages/auth/registration"
 import { Layout } from "./components/layout"
+import { SnackbarProvider } from "notistack"
+import { AuthGuard } from "./features/user/AuthGuard"
+import { Courses } from "./pages/courses"
+import { Course } from "./pages/course"
+import { Profile } from "./pages/profile"
+import { RequireAuth } from "./hoc/RequireAuth"
 
 const container = document.getElementById("root")
 
@@ -42,11 +48,19 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <>Курсы</>
+                element: (
+                    <RequireAuth>
+                        <Courses />
+                    </RequireAuth>
+                )
             },
             {
                 path: "course/:id",
-                element: <>Курс</>
+                element: (
+                    <RequireAuth>
+                        <Course />
+                    </RequireAuth>
+                )
             }
         ]
     },
@@ -56,7 +70,11 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <>Профиль</>
+                element: (
+                    <RequireAuth>
+                        <Profile />
+                    </RequireAuth>
+                )
             }
         ]
     },
@@ -76,11 +94,13 @@ if (container) {
     const root = createRoot(container)
 
     root.render(
-        <React.StrictMode>
-            <Provider store={store}>
-                <RouterProvider router={router} /> 
-            </Provider>
-        </React.StrictMode>,
+        <Provider store={store}>
+            <SnackbarProvider>
+                <AuthGuard>
+                    <RouterProvider router={router} />
+                </AuthGuard>
+            </SnackbarProvider>
+        </Provider>,
     )
 } else {
     throw new Error(

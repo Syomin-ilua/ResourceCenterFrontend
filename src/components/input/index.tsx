@@ -13,9 +13,10 @@ type Props = {
     id: string
     register: UseFormRegisterReturn<string>
     iconID?: string
+    placeholder?: string
 }
 
-export const Input: FC<Props> = ({ type = "text", title, error, errorText, name, id, register, iconID }) => {
+export const Input: FC<Props> = ({ type = "text", title, error, errorText, name, id, register, iconID, placeholder }) => {
     return (
         <label htmlFor={id} className={styles.label}>
             <p className={classNames(`${styles.input__title}`,`${error && styles.error__input_title}`)}>{iconID && <SVG id={iconID} />}{title}:</p>
@@ -25,6 +26,7 @@ export const Input: FC<Props> = ({ type = "text", title, error, errorText, name,
                 {...register}
                 type={type}
                 name={name}
+                placeholder={placeholder}
             />
             {error && <p className={styles.error__input_text}>{errorText}</p>}
         </label>
