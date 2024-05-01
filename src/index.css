@@ -78,3 +78,7 @@ h6 {
   font-size: inherit;
   font-weight: 400;
 }
+.edit__user_modal {
+  max-width: 380px;
+  width: 100%;
+}

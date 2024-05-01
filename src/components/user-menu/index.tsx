@@ -23,7 +23,7 @@ export const UserMenu = () => {
     return (
         <div onMouseEnter={() => setIsActiveMenu(true)} onMouseLeave={() => setIsActiveMenu(false)} className={styles.user}>
             <div className={styles.userInfo}>
-                <img className={styles.userImage} src={`http://localhost:3000${user?.avatarURL}`} alt="Изображение пользователя" />
+                <img className={styles.userImage} src={`http://localhost:3000/uploads/user-avatars/${user?.avatarURL}`} alt="Изображение пользователя" />
                 <p className={styles.userName}>{user?.userName}</p>
                 <div className={classNames(styles.arrow__open, `${isActiveMenu && styles.arrow__open_active}`)}>
                     <SVG id="arrow-bottom-icon" />
