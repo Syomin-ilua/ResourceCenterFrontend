@@ -1,0 +1,78 @@
+.course {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  border: 2px solid #eaeaea;
+  border-radius: 10px;
+  position: relative;
+}
+
+.course__image_wrapper img {
+  width: 100%;
+  height: 130px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.name__course {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+.course__link {
+  width: 100%;
+  height: 35px;
+  border: 2px solid #148f00;
+  background-color: #fff;
+  color: #148f00;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.course__link:hover {
+  background-color: #148f00;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.course__link:hover svg path {
+  fill: #fff;
+  transition: all 0.3s;
+}
+
+.course__delete_btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(178, 40, 40);
+    border: 2px solid rgb(178, 40, 40);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+    justify-content: center;
+}
+
+.course__delete_btn svg path {
+    fill: #fff;
+}
+
+.course__delete_btn:hover {
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+.course__delete_btn:hover svg path {
+    fill: rgb(178, 40, 40);
+    transition: all 0.3s;
+}

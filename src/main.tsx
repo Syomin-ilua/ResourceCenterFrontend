@@ -14,6 +14,20 @@ import { Courses } from "./pages/courses"
 import { Course } from "./pages/course"
 import { Profile } from "./pages/profile"
 import { RequireAuth } from "./hoc/RequireAuth"
+import { CreateCourse } from "./pages/admin/AdminPanel/courses/create-course"
+import { CourseContextProvider } from "./pages/course/CourseContext"
+import { CoursesContextProvider } from "./pages/courses/CoursesContext"
+import { AdminPanel } from "./pages/admin/AdminPanel"
+import { Users } from "./pages/admin/AdminPanel/users"
+import { Books } from "./pages/admin/AdminPanel/books"
+import { CoursesAdmin } from "./pages/admin/AdminPanel/courses"
+import { BooksPage } from "./pages/books"
+import { BooksContextProvider } from "./pages/books/BooksContext"
+import { Book } from "./pages/book"
+import { Profsouz } from "./pages/profsouz"
+import { ProfsouzContextProvider } from "./pages/profsouz/ProfsouzContext"
+import { CurrentNews } from "./pages/news"
+import { News } from "./pages/admin/AdminPanel/news"
 
 const container = document.getElementById("root")
 
@@ -49,18 +63,38 @@ const router = createBrowserRouter([
             {
                 path: "",
                 element: (
-                    <RequireAuth>
+                    <CoursesContextProvider>
                         <Courses />
-                    </RequireAuth>
+                    </CoursesContextProvider>
                 )
             },
             {
-                path: "course/:id",
+                path: ":id",
                 element: (
                     <RequireAuth>
-                        <Course />
+                        <CourseContextProvider>
+                            <Course />
+                        </CourseContextProvider>
                     </RequireAuth>
                 )
+            }
+        ]
+    },
+    {
+        path: "/books",
+        element: <Layout />,
+        children: [
+            {
+                path: "",
+                element: <BooksContextProvider>
+                    <BooksPage />
+                </BooksContextProvider>
+            },
+            {
+                path: ":id",
+                element: <RequireAuth>
+                    <Book />
+                </RequireAuth>
             }
         ]
     },
@@ -80,11 +114,55 @@ const router = createBrowserRouter([
     },
     {
         path: '/admin',
-        element: <>Проверка пользователя на права доступа к админ панели</>,
+        element: <Layout />,
         children: [
             {
-                path: "create-course",
-                element: <>Создать курс</>
+                path: "users",
+                element: <RequireAuth>
+                    <AdminPanel>
+                        <Users />
+                    </AdminPanel>
+                </RequireAuth>
+            },
+            {
+                path: "courses",
+                element: <RequireAuth>
+                    <AdminPanel>
+                        <CoursesAdmin />
+                    </AdminPanel>
+                </RequireAuth>
+            },
+            {
+                path: "books",
+                element: <RequireAuth>
+                    <AdminPanel>
+                        <Books />
+                    </AdminPanel>
+                </RequireAuth>
+            },
+            {
+                path: "news",
+                element: <RequireAuth>
+                    <AdminPanel>
+                        <News />
+                    </AdminPanel>
+                </RequireAuth>
+            },
+        ]
+    },
+    {
+        path: "/profsouz",
+        element: <Layout />,
+        children: [
+            {
+                path: "",
+                element: <ProfsouzContextProvider>
+                    <Profsouz />
+                </ProfsouzContextProvider>
+            },
+            {
+                path: "news/:id",
+                element: <CurrentNews />
             }
         ]
     }

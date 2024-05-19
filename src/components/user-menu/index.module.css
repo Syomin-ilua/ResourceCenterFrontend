@@ -37,28 +37,28 @@
   transition: all 0.2s;
 }
 
-.btn__link {
+.btn__link_profile {
   width: 100%;
   height: 35px;
-  border: 2px solid #4e8bb8;
+  border: 2px solid #00528f;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   column-gap: 20px;
   font-size: 13px;
-  color: #4e8bb8;
+  color: #00528f;
   font-weight: 700;
   transition: all 0.3s;
 }
 
-.btn__link:hover {
+.btn__link_profile:hover {
   color: #fff;
-  background-color: #4e8bb8;
+  background-color: #00528f;
   transition: all 0.3s;
 }
 
-.btn__link:hover svg path {
+.btn__link_profile:hover svg path {
   fill: #fff;
   transition: all 0.3s;
 }
@@ -76,6 +76,7 @@
   font-weight: 700;
   color: #cc0000;
   background-color: #fff;
+  transition: all 0.3s;
 }
 
 .btn__exit_profile:hover {
@@ -91,14 +92,70 @@
 }
 
 .arrow__open {
-    transition: all 0.3s;
+  transition: all 0.3s;
 }
 .arrow__open_active {
-    transform: rotate(-180deg);
-    transition: all 0.3s;
+  transform: rotate(-180deg);
+  transition: all 0.3s;
 }
 .userName {
-    font-size: 15px;
-    font-weight: 700;
-    color: #4e8bb8;
+  font-size: 15px;
+  font-weight: 700;
+  color: #00528f;
+}
+.btn__link_admin {
+  width: 100%;
+  height: 35px;
+  border: 2px solid #148f00;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #148f00;
+  background-color: #fff;
+  transition: all 0.3s;
+}
+
+.btn__link_profile svg path {
+  fill: #00528f;
+  transition: all 0.3s;
+}
+
+.btn__link_admin svg path {
+  fill: #148f00;
+  transition: all 0.3s;
+}
+
+.btn__link_admin:hover svg path {
+  fill: #fff;
+  transition: all 0.3s;
+}
+
+.btn__link_admin:hover {
+  color: #fff;
+  background-color: #148f00;
+  transition: all 0.3s;
+}
+
+.btn__link_profile_active {
+  color: #fff;
+  background-color: #00528f;
+}
+
+.btn__link_profile_active svg path {
+  fill: #fff;
+}
+
+.btn__link_admin_active {
+  color: #fff;
+  background-color: #148f00;
+  transition: all 0.3s;
+}
+
+.btn__link_admin_active svg path {
+  fill: #fff;
+  transition: all 0.3s;
 }

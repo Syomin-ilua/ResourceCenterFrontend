@@ -1,0 +1,170 @@
+.form__add_book {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+.add__book_title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+}
+.add__book_title svg path {
+  fill: #333;
+}
+.add__book_title h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+.form__inputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+label {
+  cursor: pointer;
+}
+.textarea__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.textarea__label {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.textarea__label p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+.textarea {
+  width: 100%;
+  resize: none;
+  height: 100px;
+  border: 1px solid #cacaca;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.textarea:hover {
+  box-shadow: 2px 2px 2px 2px rgba(209, 209, 209, 0.5);
+  transition: all 0.3s;
+}
+.textarea:focus {
+  box-shadow: 4px 4px 4px 4px rgba(162, 162, 162, 0.5);
+  transition: all 0.3s;
+}
+.error__input_text {
+  font-size: 12px;
+  color: rgb(253, 54, 54);
+}
+.image__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.book__image_title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+.input__file_title p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+.input__file_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.delete__file_btn {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  background-color: #fff;
+}
+
+.delete__file_btn span {
+  width: 100%;
+  height: 2px;
+  background-color: rgb(197, 41, 41);
+  display: block;
+  border-radius: 5px;
+}
+.delete__file_btn span:nth-child(1) {
+  transform: rotate(45deg) translateX(1px) translateY(0.5px);
+}
+.delete__file_btn span:nth-child(2) {
+  transform: rotate(-45deg) translateX(2px);
+}
+.file__wrapper {
+  position: relative;
+}
+.image__uploaded {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+.file__btn {
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #333;
+  background-color: #d9d9d9;
+  font-weight: 400;
+  transition: all 0.3s;
+}
+.file__btn:hover {
+  background-color: #9d9d9d;
+  transition: all 0.3s;
+}
+
+.inputFile {
+  display: none;
+}
+.file__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.btn__add_book {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #00528f;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  color: #00528f;
+  transition: all 0.3s;
+}
+.btn__add_book:hover {
+  background-color: #00528f;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.error__textarea p {
+  color: rgb(253, 54, 54);
+}
+.error__textarea .textarea {
+  color: rgb(253, 54, 54);
+  border: 1px solid rgb(253, 54, 54);
+}
+.empty__file_text {
+  font-size: 13px;
+  color: #333;
+  font-weight: 400;
+}

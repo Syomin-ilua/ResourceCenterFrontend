@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { logout, selectCurrent } from "../../features/user/userSlice";
 import classNames from "classnames";
@@ -20,6 +20,8 @@ export const UserMenu = () => {
         navigate("/");
     }
 
+    const { pathname } = useLocation();
+
     return (
         <div onMouseEnter={() => setIsActiveMenu(true)} onMouseLeave={() => setIsActiveMenu(false)} className={styles.user}>
             <div className={styles.userInfo}>
@@ -30,9 +32,13 @@ export const UserMenu = () => {
                 </div>
             </div>
             <div className={classNames(styles.userMenu, `${isActiveMenu && styles.userMenu__active}`)}>
-                <Link to="/profile" className={styles.btn__link}>
+                <Link to="/profile" className={classNames(styles.btn__link_profile, pathname === "/profile" && styles.btn__link_profile_active)}>
                     <SVG id="profile-icon" />
                     Личный кабинет
+                </Link>
+                <Link to="/admin/users" className={classNames(styles.btn__link_admin, (pathname === "/admin/users" || pathname === "/admin/books" || pathname === "/admin/courses") && styles.btn__link_admin_active)}>
+                    <SVG id="admin-icon" />
+                    Админ панель
                 </Link>
                 <button onClick={handleExitProfile} className={styles.btn__exit_profile}>
                     <SVG id="exit-profile-icon" />

@@ -1,5 +1,8 @@
 .profile {
     width: 100%;
-    margin-top: 170px;
-    margin-bottom: 70px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
 }

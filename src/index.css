@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   padding: 0;
   margin: 0;
   border: 0;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
 }
 *,
 *:before,
@@ -80,5 +80,32 @@ h6 {
 }
 .edit__user_modal {
   max-width: 380px;
+  width: 100%;
+}
+.results__test_modal {
+  max-width: 500px;
+  width: 100%;
+}
+
+.edit__user {
+  max-width: 380px;
+  width: 100%;
+}
+.edit__book {
+  max-width: 500px;
+  width: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.container {
+  max-width: 1050px;
+  width: 100%;
+  margin: 0 auto;
+}
+.edit__news {
+  max-width: 700px;
   width: 100%;
 }

@@ -1,4 +1,3 @@
-import { Container } from "../../components/container";
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
 import { Link as NavLink } from "../../components/navlink";
@@ -13,9 +12,9 @@ export const Header = () => {
 
     return (
         <header className={styles.header}>
-            <Container>
+            <div className="container">
                 <div className={styles.wrapper}>
-                    <Link to="/">
+                    {/* <Link to="/">
                         <div className={styles.logo__wrapper}>
                             <div className={styles.logo__icon_wrapper}>
                                 <SVG id="logo-icon" />
@@ -25,28 +24,28 @@ export const Header = () => {
                                     “Воронеж-ПЛАСТ”</p>
                             </div>
                         </div>
-                    </Link>
+                    </Link> */}
                     <div className={styles.desktop__nav}>
                         <nav className={styles.nav}>
                             <ul className={styles.nav__list}>
                                 <li className={styles.nav__item}>
                                     <NavLink
-                                        linkURL="/"
-                                        title="Главная"
-                                        icon="main-icon"
+                                        linkURL="/profsouz"
+                                        title="Профсоюзная организация"
+                                        icon="profsouz-icon"
                                     />
                                 </li>
                                 <li className={styles.nav__item}>
                                     <NavLink
-                                        linkURL="/zavod"
-                                        title="О заводе"
-                                        icon="factory-icon"
+                                        linkURL="/books"
+                                        title="Эл. библиотека"
+                                        icon="books-icon"
                                     />
                                 </li>
                                 <li className={styles.nav__item}>
                                     <NavLink
                                         linkURL="/courses"
-                                        title="Курсы"
+                                        title="Обучение"
                                         icon="courses-icon"
                                     />
                                 </li>
@@ -55,10 +54,6 @@ export const Header = () => {
                         {isAuthenticated ?
                             <UserMenu /> :
                             <div className={styles.button__links}>
-                                <Link className={styles.button__link_register} to="/auth/sign-up">
-                                    <SVG id="register-icon" />
-                                    <p className={styles.button__link_text}>Регистрация</p>
-                                </Link>
                                 <Link className={styles.button__link_login} to="/auth/sign-in">
                                     <SVG id="login-icon" />
                                     <p className={styles.button__link_text}>Войти</p>
@@ -67,7 +62,7 @@ export const Header = () => {
                         }
                     </div>
                 </div>
-            </Container>
+            </div>
         </header>
     )
 }

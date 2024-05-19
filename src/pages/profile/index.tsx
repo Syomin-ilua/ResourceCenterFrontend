@@ -1,6 +1,7 @@
 import { Container } from "../../components/container";
 import styles from "./index.module.css";
 import { Profile as ProfileComponent } from "../../components/profile";
+import { Cerfiticates } from "../../components/certificates";
 
 export const Profile = () => {
 
@@ -9,7 +10,7 @@ export const Profile = () => {
             <Container>
                 <div className={styles.wrapper}>
                     <ProfileComponent />
-                    <div className={styles.certificate__wrapper}></div>
+                    <Cerfiticates />
                 </div>
             </Container>
         </div>

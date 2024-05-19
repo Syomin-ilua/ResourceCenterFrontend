@@ -1,0 +1,236 @@
+.create__course {
+  width: 100%;
+}
+.wrapper {
+  width: 100%;
+  border: 1px solid #c9c9c9;
+  border-radius: 10px;
+  padding: 20px;
+}
+.input__file_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.inputFile {
+  display: none;
+}
+.file__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.create__course_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.course__contructor {
+  width: 100%;
+}
+
+.file__btn {
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #333;
+  background-color: #d9d9d9;
+  font-weight: 400;
+  transition: all 0.3s;
+}
+.file__btn:hover {
+  background-color: #9d9d9d;
+  transition: all 0.3s;
+}
+.create__course_form_control {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.input__file_title p {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.image__uploaded {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+.delete__file_btn {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  background-color: #fff;
+}
+
+.delete__file_btn span {
+  width: 100%;
+  height: 2px;
+  background-color: rgb(197, 41, 41);
+  display: block;
+  border-radius: 5px;
+}
+.delete__file_btn span:nth-child(1) {
+  transform: rotate(45deg) translateX(1px) translateY(0.5px);
+}
+.delete__file_btn span:nth-child(2) {
+  transform: rotate(-45deg) translateX(2px);
+}
+.file__wrapper {
+  position: relative;
+}
+.course__title_wrapper {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 20px;
+}
+.course__test_questions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.course__test_title {
+}
+.course__test_title p {
+  font-size: 16px;
+  color: #333;
+  font-weight: 700;
+}
+.input__title {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.input__question_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.input {
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #d8d8d8;
+  padding-left: 10px;
+}
+.inputs__answers_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.inputs__correctAnswer_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.add__quiestion {
+  width: 100%;
+  height: 35px;
+  border: 2px solid #24b121;
+  background-color: #fff;
+  color: #24b121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.add__quiestion svg path {
+  fill: #24b121;
+  transition: all 0.3s;
+}
+
+.add__quiestion:hover {
+  background-color: #24b121;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.add__quiestion:hover svg path {
+  fill: #fff;
+  transition: all 0.3s;
+}
+
+.add__answer {
+  width: 100%;
+  height: 35px;
+  border: 2px solid #2127b1;
+  background-color: #fff;
+  color: #2127b1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.add__answer:hover {
+  background-color: #2127b1;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.add__answer:hover svg path {
+  fill: #fff;
+  transition: all 0.3s;
+}
+
+
+.inputs__answers {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
+}
+
+.create__course_btn_wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.create__course_btn {
+  width: 100%;
+  height: 35px;
+  background-color: #fff;
+  color:#24b121;
+  font-size: 14px;
+  font-weight: 700;
+  border: 2px solid #24b121;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  transition: all 0.3s;
+}
+
+
+.create__course_btn:hover {
+  background-color: #24b121;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.create__course_btn:hover svg path {
+  fill: #fff;
+  transition: all 0.3s;
+}

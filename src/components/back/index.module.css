@@ -1,0 +1,33 @@
+.back__btn {
+    font-size: 14px;
+    color: #333;
+    font-weight: 700;
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border: 2px solid #00528F;
+    color: #fff;
+    transition: all 0.3s;
+    background-color: #00528F;
+}
+
+.back__btn svg path {
+    fill: #fff;
+    transition: all 0.3s;
+}
+
+.back__btn:hover svg path {
+    fill: #00528F;
+    transition: all 0.3s;
+}
+.back__btn:hover {
+    color: #00528F;
+    background-color: #fff;
+    transition: all 0.3s;
+}

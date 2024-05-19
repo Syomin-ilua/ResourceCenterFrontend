@@ -29,7 +29,19 @@
     padding: 10px;
     border-radius: 5px;
     color: #333;
+    transition: all 0.3s;
 }
+
+.input:hover {
+    box-shadow: 4px 4px 4px 4px rgba(166, 166, 166, 0.5);
+    transition: all 0.3s;
+}
+
+.input:focus {
+    box-shadow: 4px 4px 4px 4px rgba(122, 122, 122, 0.5);
+    transition: all 0.3s;
+}
+
 .error__input {
     border: 1px solid rgb(253, 54, 54);
     color: rgb(253, 54, 54);

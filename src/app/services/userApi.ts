@@ -32,10 +32,35 @@ export const userApi = api.injectEndpoints({
                 url: "/current",
                 method: "GET",
             })
+        }),
+        getAllUsers: builder.query<User[], void>({
+            query: () => ({
+                url: "/users",
+                method: "GET"
+            })
+        }),
+        deleteUser: builder.mutation<User, string>({
+            query: (id) => ({
+                url: `users/${id}`,
+                method: "DELETE",
+            })
+        }),
+        editUserAdmin: builder.mutation<User, { userData: FormData, id: string }>({
+            query: ({ userData, id }) => ({
+                url: `users/${id}`,
+                method: "PUT",
+                body: userData
+            })
+        }),
+        getUserById: builder.query<User, string>({
+            query: (id) => ({
+                url: `users/${id}`,
+                method: "GET",
+            })
         })
     })
 });
 
-export const { useSignUpMutation, useLoginMutation, useCurrentQuery, useLazyCurrentQuery, useUpdateUserMutation } = userApi;
+export const { useSignUpMutation, useLoginMutation, useCurrentQuery, useLazyCurrentQuery, useUpdateUserMutation, useDeleteUserMutation, useEditUserAdminMutation, useGetAllUsersQuery, useLazyGetAllUsersQuery, useGetUserByIdQuery } = userApi;
 
-export const { endpoints: { login, signUp, updateUser, current } } = userApi;
+export const { endpoints: { login, signUp, updateUser, current, editUserAdmin, getAllUsers, deleteUser, getUserById } } = userApi;

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Container } from "../../components/container";
 import styles from "./index.module.css";
 import { SVG } from "../../components/svg";
 
@@ -7,7 +6,7 @@ export const Footer = () => {
     return (
 
         <footer className={styles.footer}>
-            <Container>
+            <div className="container">
                 <div className={styles.wrapper}>
                     <div className={styles.top}>
                         <div className={styles.leftside}>
@@ -53,7 +52,7 @@ export const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </Container>
+            </div>
             <div className={styles.bottom}>
                 <p className={styles.footer__text}>
                     Ресурсный центр “Воронеж-ПЛАСТ”

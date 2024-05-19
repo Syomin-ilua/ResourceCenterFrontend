@@ -1,6 +1,11 @@
 .footer {
   width: 100%;
+  min-height: 330px;
+  max-height: 330px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   background-color: #222147;
 }
 .wrapper {

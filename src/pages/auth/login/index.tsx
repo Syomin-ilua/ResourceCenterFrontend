@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Input } from "../../../components/input";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLazyCurrentQuery, useLoginMutation } from "../../../app/services/userApi";
 import { hasErrorField } from "../../../utils/hasErrorField";
 import { showMessage } from "../../../utils/showMessage";
@@ -37,7 +37,7 @@ export const Login = () => {
         }
     }, [isAuthentificate]);
 
-    const { handleSubmit, register, formState: { errors }, reset } = useForm<Login>({
+    const { handleSubmit, register, formState: { errors } } = useForm<Login>({
         defaultValues: {
             email: "",
             password: ""
@@ -94,7 +94,6 @@ export const Login = () => {
                             <SVG id="login-icon" />
                             Войти
                         </button>
-                        <p className={styles.auth__link}>Нет аккаунта? <Link to="/auth/sign-up">Зарегистрироваться</Link></p>
                     </form>
                 </div>
             </Container>

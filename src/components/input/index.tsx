@@ -11,7 +11,7 @@ type Props = {
     errorText?: string
     name: string
     id: string
-    register: UseFormRegisterReturn<string>
+    register?: UseFormRegisterReturn<string>
     iconID?: string
     placeholder?: string
 }

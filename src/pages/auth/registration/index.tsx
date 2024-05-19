@@ -6,7 +6,6 @@ import { SVG } from "../../../components/svg";
 import styles from "./index.module.css";
 import { Input } from "../../../components/input";
 import { Link, useNavigate } from "react-router-dom";
-import classNames from "classnames";
 import { useSignUpMutation } from "../../../app/services/userApi";
 import { hasErrorField } from "../../../utils/hasErrorField";
 import { showMessage } from "../../../utils/showMessage";
@@ -98,7 +97,7 @@ export const Registration = () => {
                 <div className={styles.register__wrapper}>
                     <div className={styles.title__wrapper}>
                         <SVG id="register-icon" />
-                        <h1 className={styles.title}>Регистрация в сервисе</h1>
+                        <h1 className={styles.title}>Регистрация сотрудника</h1>
                     </div>
                     <form className={styles.register__form} onSubmit={handleSubmit(onSubmit)}>
                         <div className={styles.top}>
