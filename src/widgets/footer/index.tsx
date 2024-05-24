@@ -10,7 +10,7 @@ export const Footer = () => {
                 <div className={styles.wrapper}>
                     <div className={styles.top}>
                         <div className={styles.leftside}>
-                            <Link className={styles.link} to="/">
+                            {/* <Link className={styles.link} to="/">
                                 <div className={styles.logo__wrapper}>
                                     <div className={styles.logo__icon_wrapper}>
                                         <svg width="42" height="40" viewBox="0 0 42 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +22,7 @@ export const Footer = () => {
                                             “Воронеж-ПЛАСТ”</p>
                                     </div>
                                 </div>
-                            </Link>
+                            </Link> */}
                             <div className={styles.support__wrapper}>
                                 <p className={styles.support__title}>Служба поддержки:</p>
                                 <div className={styles.support__info}>
@@ -46,7 +46,7 @@ export const Footer = () => {
                             <p className={styles.links__title}>Ссылки:</p>
                             <div className={styles.links}>
                                 <Link className={styles.link} to="/">Главная</Link>
-                                <Link className={styles.link} to="/">О заводе</Link>
+                                <Link className={styles.link} to="/">Обучение</Link>
                                 <Link className={styles.link} to="/courses">Курсы</Link>
                             </div>
                         </div>
@@ -54,9 +54,6 @@ export const Footer = () => {
                 </div>
             </div>
             <div className={styles.bottom}>
-                <p className={styles.footer__text}>
-                    Ресурсный центр “Воронеж-ПЛАСТ”
-                </p>
                 <p className={styles.footer__text}>
                     © Все права защищены
                 </p>

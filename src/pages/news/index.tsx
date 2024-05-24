@@ -38,7 +38,7 @@ export const CurrentNews = () => {
                         <div className={styles.news}>
                             <div className={styles.news__main_info}>
                                 <h1>{data.newsName}</h1>
-                                <p className={styles.date__news}>Новость от {normalizeDate(data.createdAt)}</p>
+                                <p className={styles.date__news}>Новость от {normalizeDate(data.createdAt)} <br /> <span>Категория: {data.categoryNews}</span></p>
                             </div>
                             <div className={styles.news__info}>
                                 <div className={styles.news__image}>

@@ -1,0 +1,53 @@
+.schedules {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+    column-gap: 7px;
+}
+.schedules__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+} 
+.schedule {
+    display: flex;
+    flex-direction: column;
+    row-gap: 7px;
+    border: 1px solid #bbbbbb;
+    padding: 10px;
+    border-radius: 5px;
+}
+.schedule p span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+} 
+
+.schedule h2 span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+} 
+.btnCloseModalSchedules {
+    width: 100%;
+    height: 35px;
+    background-color: #cc0000;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+.btnCloseModalSchedules:hover {
+    background-color: #fff;
+    color: #cc0000;
+    transition: all 0.3s;
+}

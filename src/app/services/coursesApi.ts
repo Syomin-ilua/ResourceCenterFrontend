@@ -12,7 +12,7 @@ export const courseApi = api.injectEndpoints({
                 body: courseData
             })
         }),
-        getCourses: builder.query<TCourses[], { search?: string }>({
+        getCourses: builder.query<Course[], { search?: string }>({
             query: ({ search }) => {
                 const params: { [key: string]: string | number } = {};
                 if (search) params.search = search;
@@ -34,9 +34,16 @@ export const courseApi = api.injectEndpoints({
                 url: `/delete-course/${id}`,
                 method: "DELETE"
             })
+        }),
+        updateCourse: builder.mutation<{ message: string }, { courseId: string, courseData: FormData }>({
+            query: ({ courseId, courseData }) => ({
+                url: `/courses/${courseId}`,
+                method: "PUT",
+                body: courseData
+            })
         })
     })
 });
 
-export const { endpoints: { createCourse, getCourse, getCourses, deleteCourse } } = courseApi;
-export const { useCreateCourseMutation, useDeleteCourseMutation, useGetCourseQuery, useLazyGetCoursesQuery, useGetCoursesQuery } = courseApi;
+export const { endpoints: { createCourse, getCourse, getCourses, deleteCourse, updateCourse } } = courseApi;
+export const { useCreateCourseMutation, useDeleteCourseMutation, useGetCourseQuery, useLazyGetCoursesQuery, useGetCoursesQuery, useUpdateCourseMutation } = courseApi;

@@ -5,12 +5,6 @@ import { useDebounce } from "../../hooks/useDebounce";
 import { hasErrorField } from "../../utils/hasErrorField";
 import { showMessage } from "../../utils/showMessage";
 import type { Course } from "../../app/types";
-// type Course = {
-//     id: string;
-//     courseName: string;
-//     courseImage: string;
-//     theoreticalMaterials: string;
-// }
 
 type TCoursesContext = {
     searchValue: string

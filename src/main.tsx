@@ -28,6 +28,8 @@ import { Profsouz } from "./pages/profsouz"
 import { ProfsouzContextProvider } from "./pages/profsouz/ProfsouzContext"
 import { CurrentNews } from "./pages/news"
 import { News } from "./pages/admin/AdminPanel/news"
+import { Union } from "./pages/admin/AdminPanel/union"
+import { Events } from "./pages/admin/AdminPanel/events"
 
 const container = document.getElementById("root")
 
@@ -145,6 +147,22 @@ const router = createBrowserRouter([
                 element: <RequireAuth>
                     <AdminPanel>
                         <News />
+                    </AdminPanel>
+                </RequireAuth>
+            },
+            {
+                path: "union",
+                element: <RequireAuth>
+                    <AdminPanel>
+                        <Union />
+                    </AdminPanel>
+                </RequireAuth>
+            },
+            {
+                path: "events",
+                element: <RequireAuth>
+                    <AdminPanel>
+                        <Events />
                     </AdminPanel>
                 </RequireAuth>
             },

@@ -61,6 +61,11 @@
   padding: 15px;
 }
 
+.admin__link svg {
+  width: 25px;
+  height: 25px;
+}
+
 .admin__link svg path {
   fill: #333;
 }

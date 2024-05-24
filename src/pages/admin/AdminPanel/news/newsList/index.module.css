@@ -26,7 +26,7 @@
   display: flex;
   align-items: flex-start;
   column-gap: 10px;
-  max-width: 400px;
+  max-width: 550px;
   width: 100%;
 }
 .book__info {
@@ -130,6 +130,14 @@
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+}
+
+.book__main_info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 .book__link {
   width: 100%;

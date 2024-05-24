@@ -2,14 +2,6 @@ import type { Course } from "../types";
 import { api } from "./api";
 import type { ResultsTest } from "../types";
 
-// type ResultsTest = {
-//     id?: string
-//     resultProcent: number
-//     idUser: string
-//     idCourse: string
-//     course?: Omit<Course, "questions">
-// }
-
 type TGetAllResults = ResultsTest & {
     course: Omit<Course, "questions">
 }
@@ -31,9 +23,15 @@ export const resultsApi = api.injectEndpoints({
                 method: "GET",
             })
         }),
+        deleteResult: builder.mutation<{ message: string }, string>({
+            query: (id) => ({
+                url: `/results/${id}`,
+                method: "DELETE",
+            })
+        }),
     })
 });
 
 
-export const { endpoints: { addResults, getAllResultsUser } } = resultsApi;
-export const { useAddResultsMutation, useGetAllResultsUserQuery } = resultsApi;
+export const { endpoints: { addResults, getAllResultsUser, deleteResult } } = resultsApi;
+export const { useAddResultsMutation, useGetAllResultsUserQuery, useDeleteResultMutation } = resultsApi;

@@ -6,6 +6,7 @@ import { SVG } from "../../components/svg";
 import { useProfsouzContext } from '../../hooks/useProfsouzContext';
 import styles from "./index.module.css";
 import { Loader } from '../loader';
+import { MemberInUnion } from '../memberInUnion';
 
 export const News = () => {
 
@@ -41,13 +42,18 @@ export const News = () => {
 
     return (
         <div className={styles.news__wrapper}>
-            <h1 className={styles.news__title}>
-                <SVG id="news-icon" />
-                Новости
-            </h1>
+            <div className={styles.top}>
+                <h1 className={styles.news__title}>
+                    <SVG id="news-icon" />
+                    Новости
+                </h1>
+                <MemberInUnion />
+            </div>
+            <p style={{ marginBottom: 10 }}>Все актуальные новости предприятия будут публиковаться здесь</p>
             <div className={styles.actions}>
                 <div className={styles.selectCategory}>
                     <Select
+                        isSearchable={false}
                         placeholder="Выберите категорию"
                         className={styles.select}
                         onChange={onChangeSelect}

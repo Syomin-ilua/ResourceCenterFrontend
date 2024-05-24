@@ -8,6 +8,7 @@ import { TheoretiacalMaterialsCourse } from "../../components/theoreticalMateria
 import { Testing } from "../../components/testing";
 import { Modal } from "../../components/modal";
 import { ResultsTest } from "../../components/resultsTest";
+import { Back } from "../../components/back";
 
 export const Course = () => {
 
@@ -16,6 +17,7 @@ export const Course = () => {
     return (
         <div className={styles.course}>
             <div className="container">
+                <Back />
                 <div className={styles.wrapper}>
                     {isLoading && !isError && <Loader />}
                     {!isLoading && !isError && (

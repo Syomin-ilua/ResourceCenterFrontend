@@ -39,3 +39,4 @@ export default slice.reducer;
 
 export const selectCurrent = (state: RootState) => state.user.current;
 export const selectIsAuthenticated = (state: RootState) => state.user.isAuthenticated;
+export const selectUnion = (state: RootState) => state.user.current?.unions

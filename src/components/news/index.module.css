@@ -14,7 +14,7 @@
 
 .news__list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(490px, 500px));
+  grid-template-columns: repeat(2, minmax(500px, 550px));
   justify-content: space-between;
   align-items: center;
   row-gap: 20px;
@@ -42,9 +42,20 @@
   font-size: 15px;
   font-weight: 700;
   color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .news__main_info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-align: left;
 }
 
 .news__info {
@@ -72,7 +83,6 @@
   font-size: 12px;
   color: #bdbdbd;
   height: 100%;
-  text-align: justify;
 }
 .link {
   font-size: 14px;
@@ -83,6 +93,11 @@
 .link:hover {
   color: rgb(63, 63, 211);
   transition: all 0.3s;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .news__title {
   font-size: 18px;

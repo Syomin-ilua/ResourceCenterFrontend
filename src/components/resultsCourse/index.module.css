@@ -1,0 +1,157 @@
+.title {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+.title svg path {
+  fill: #333;
+}
+.data__empty {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+.results {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.resutlsCourse {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.result {
+  padding: 20px;
+  border: 1px solid #8f8f8f;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.user__info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.user__avatar {
+  width: 120px;
+  height: 120px;
+}
+
+.user__avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.user {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+.test__results {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+.results__info {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.results__info span {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+.results__info {
+  font-size: 13px;
+}
+.userInfo h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+.userInfo p {
+  font-weight: 400;
+  color: #9f9f9f;
+  font-size: 12px;
+}
+.downoald__certificate {
+  height: 35px;
+  border-radius: 5px;
+  border: 2px solid #148f00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  padding: 0px 20px;
+  background-color: #fff;
+  color: #148f00;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.downoald__certificate:hover {
+  background-color: #148f00;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.downoald__certificate:hover svg path {
+  fill: #fff;
+  transition: all 0.3s;
+}
+.delete__result_btn {
+    max-width: 230px;
+    width: 100%;
+    height: 35px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    color: #cc0000;
+    font-weight: 600;
+    font-size: 13.5px;
+    transition: all 0.3s;
+}
+.delete__result_btn svg path {
+    fill: #cc0000;
+    transition: all 0.3s;
+}
+.delete__result_btn:hover {
+    color: #fff;
+    background-color: #cc0000;
+    transition: all 0.3s;
+}
+
+.delete__result_btn:hover svg path {
+    fill: #fff;
+    transition: all 0.3s;
+}
+
+.certificate__actions {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-top: 5px;
+}

@@ -27,7 +27,8 @@
   width: 100%;
 }
 .course__image {
-  width: 160px;
+  max-width: 200px;
+  min-width: 200px;
   height: 170px;
 }
 .course__image img {
@@ -42,7 +43,7 @@
   line-height: 20px;
 }
 .course__link {
-  max-width: 300px;
+  width: 35px;
   height: 35px;
   font-size: 14px;
   font-weight: 700;
@@ -56,11 +57,27 @@
   transition: all 0.3s;
 }
 
+.course__link svg {
+  width: 25px;
+  height: 25px;
+}
+
+.course__link svg path {
+  fill: #fff;
+  transition: all 0.3s;
+}
+
 .course__link:hover {
   color: #148f00;
   background-color: #fff;
   transition: all 0.3s;
 }
+
+.course__link:hover svg path {
+  fill: #148f00;
+  transition: all 0.3s;
+}
+
 .course__info {
   display: flex;
   flex-direction: column;
@@ -125,4 +142,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.actions__course {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.btn__update_course {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #00528f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #00528f;
+  transition: all 0.3s;
+}
+.btn__update_course svg path {
+  fill: #fff;
+  transition: all 0.3s;
+}
+.btn__update_course:hover {
+  background-color: #fff;
+  transition: all 0.3s;
+}
+.btn__update_course:hover svg path {
+  fill: #00528f;
+  transition: all 0.3s;
 }

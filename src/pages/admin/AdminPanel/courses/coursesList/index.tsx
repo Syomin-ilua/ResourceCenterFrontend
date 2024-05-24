@@ -5,6 +5,11 @@ import { hasErrorField } from "../../../../../utils/hasErrorField";
 import { showMessage } from "../../../../../utils/showMessage";
 import styles from "./index.module.css";
 import { Loader } from "../../../../../components/loader";
+import { Modal } from "../../../../../components/modal";
+import { useState } from "react";
+import { CourseForm } from "../../../../../components/courseForm";
+import { type ResultsTest, type Course } from "../../../../../app/types";
+import { ResultsCourse } from "../../../../../components/resultsCourse";
 
 export const CoursesActions = () => {
 
@@ -12,6 +17,12 @@ export const CoursesActions = () => {
 
     const [triggerGetAllCourses] = useLazyGetCoursesQuery();
     const [deleteCourse] = useDeleteCourseMutation();
+
+    const [isShowUpdateCourse, setIsShowUpdateCourse] = useState(false);
+    const [updateCourse, setUpdateCourse] = useState<Course | null>(null);
+
+    const [resultsCourseIdx, setResultsCourseIdx] = useState<number>(0);
+    const [isShowResultsCourse, setIsShowResultsCourse] = useState(false);
 
     const handleDeleteCourse = async (id: string) => {
         try {
@@ -25,40 +36,73 @@ export const CoursesActions = () => {
         }
     }
 
+    const handleUpdateCourse = (course: Course) => {
+        setUpdateCourse(course);
+        setIsShowUpdateCourse(true);
+    }
+
+    const handleResultsCourse = (idx: number) => {
+        setResultsCourseIdx(idx);
+        setIsShowResultsCourse(true);
+    }
+
+
     return (
         <div className={styles.courses__actions}>
             {isLoading && !isError &&
                 <div className={styles.loader__wrapper}><Loader /></div>
             }
             {!isLoading && isError &&
-                <div className={styles.error__content}>Произошла ошибка</div>
+                <div className={styles.error__content}>
+                    <SVG id="error-icon" />
+                    Произошла ошибка
+                </div>
             }
             {!isLoading && !isError && !data?.length &&
-                <div className={styles.data__empty}>Эл. книги пока не добавили</div>
+                <div className={styles.data__empty}>
+                    <SVG id="empty-icon" />
+                    Курсов пока не добавили
+                </div>
             }
             {!isLoading && !isError && data &&
                 <div className={styles.courses}>
                     <ul className={styles.courses__list}>
-                        {data?.map(course => (
-                            <li className={styles.course__item}>
-                                <div className={styles.courseInfo}>
-                                    <div className={styles.course__image}>
-                                        <img src={`http://localhost:3000/uploads/course-materials/images/${course.courseImage}`} alt="" />
-                                    </div>
-                                    <div className={styles.course__info}>
-                                        <div className={styles.course__main_info}>
-                                            <h2>{course.courseName}</h2>
+                        {data?.map((course, idx) => (
+                            <>
+                                <li className={styles.course__item}>
+                                    <div className={styles.courseInfo}>
+                                        <div className={styles.course__image}>
+                                            <img src={`http://localhost:3000/uploads/course-materials/images/${course.courseImage}`} alt="" />
                                         </div>
-                                        <Link to={`/courses/${course.id}`} className={styles.course__link}>О курсе</Link>
+                                        <div className={styles.course__info}>
+                                            <div className={styles.course__main_info}>
+                                                <h2>{course.courseName}</h2>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className={styles.actions__course}>
-                                    <button onClick={() => handleDeleteCourse(course.id)} className={styles.btn__delete_course}>
-                                        <SVG id="delete-icon" />
-                                    </button>
-                                </div>
-                            </li>
+                                    <div className={styles.actions__course}>
+                                        <button onClick={() => handleDeleteCourse(course.id)} className={styles.btn__delete_course}>
+                                            <SVG id="delete-icon" />
+                                        </button>
+                                        <button onClick={() => handleUpdateCourse(course)} className={styles.btn__update_course}>
+                                            <SVG id="register-icon" />
+                                        </button>
+                                        <button onClick={() => handleResultsCourse(idx)} className={styles.btn__update_course}>
+                                            <SVG id="results-icon" />
+                                        </button>
+                                        <Link to={`/courses/${course.id}`} className={styles.course__link}>
+                                            <SVG id="link-icon" />
+                                        </Link>
+                                    </div>
+                                </li>
+                            </>
                         ))}
+                        <Modal className="modal__update_course" isVisible={isShowUpdateCourse} onClose={() => setIsShowUpdateCourse(false)}>
+                            {updateCourse && <CourseForm onCloseModal={() => setIsShowUpdateCourse(false)} typeForm="updateCourse" course={updateCourse} />}
+                        </Modal>
+                        <Modal className="modal__results_course" isVisible={isShowResultsCourse} onClose={() => setIsShowResultsCourse(false)}>
+                            {isShowResultsCourse && <ResultsCourse resultsCourse={data[resultsCourseIdx].ResultsCourse} />}
+                        </Modal>
                     </ul>
                 </div>
             }

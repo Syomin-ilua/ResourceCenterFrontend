@@ -14,17 +14,6 @@ export const Header = () => {
         <header className={styles.header}>
             <div className="container">
                 <div className={styles.wrapper}>
-                    {/* <Link to="/">
-                        <div className={styles.logo__wrapper}>
-                            <div className={styles.logo__icon_wrapper}>
-                                <SVG id="logo-icon" />
-                            </div>
-                            <div className={styles.logo__text_wrapper}>
-                                <p className={styles.logo__text}>Ресурсный центр
-                                    “Воронеж-ПЛАСТ”</p>
-                            </div>
-                        </div>
-                    </Link> */}
                     <div className={styles.desktop__nav}>
                         <nav className={styles.nav}>
                             <ul className={styles.nav__list}>
