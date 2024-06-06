@@ -127,6 +127,7 @@ export const EventForm: FC<Props> = ({ typeForm, schedules = [], eventData = { n
                     data.description !== eventData.description && formData.append("description", data.description);
                     data.eventLocation !== eventData.eventLocation && formData.append("eventLocation", data.eventLocation);
                     !arraysAreEqual(schedules, schedulesData) && formData.append("schedules", JSON.stringify(schedulesData));
+                    eventImage && formData.append("eventPicture", eventImage);
                     result = await updateEvent({ updateEventData: formData, eventId: eventData.id! }).unwrap();
                     await triggerGetAllEvents().unwrap()
                     onCloseModal()

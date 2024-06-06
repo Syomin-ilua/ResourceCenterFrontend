@@ -12,6 +12,7 @@ import type { Event, Participation, Schedule } from "../../../../../app/types";
 import { hasSuccessField } from "../../../../../utils/hasSuccessField";
 import { EventForm } from "../../../../../components/eventForm";
 import { Schedules } from "../../../../../components/schedules";
+import { BASE_STATIC } from "../../../../../constants";
 
 export const EventsList = () => {
 
@@ -105,7 +106,7 @@ export const EventsList = () => {
                             <li className={styles.book__item}>
                                 <div className={styles.bookInfo}>
                                     <div className={styles.book__image}>
-                                        <img src={`http://localhost:3000/uploads/event-images/${eventData.eventPicture}`} alt="" />
+                                        <img src={`${BASE_STATIC}/event-images/${eventData.eventPicture}`} alt="" />
                                     </div>
                                     <div className={styles.book__info}>
                                         <div className={styles.book__main_info}>

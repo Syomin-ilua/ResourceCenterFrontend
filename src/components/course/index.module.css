@@ -9,6 +9,38 @@
   position: relative;
 }
 
+.questions__course {
+  font-size: 12px;
+  color: #acacac;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.questions__course span {
+  color: #333;
+  font-weight: 600;
+}
+
+.name__course_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.description__course {
+  width: 100%;
+  font-size: 12px;
+  color: #acacac;
+  line-height: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  text-align: left;
+}
+
 .course__image_wrapper img {
   width: 100%;
   height: 130px;
@@ -20,7 +52,6 @@
   font-size: 16px;
   font-weight: 700;
   color: #333;
-  text-align: center;
 }
 .course__link {
   width: 100%;
@@ -49,30 +80,30 @@
 }
 
 .course__delete_btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 35px;
-    height: 35px;
-    background-color: rgb(178, 40, 40);
-    border: 2px solid rgb(178, 40, 40);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s;
-    justify-content: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: rgb(178, 40, 40);
+  border: 2px solid rgb(178, 40, 40);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+  justify-content: center;
 }
 
 .course__delete_btn svg path {
-    fill: #fff;
+  fill: #fff;
 }
 
 .course__delete_btn:hover {
-    background-color: #fff;
-    transition: all 0.3s;
+  background-color: #fff;
+  transition: all 0.3s;
 }
 
 .course__delete_btn:hover svg path {
-    fill: rgb(178, 40, 40);
-    transition: all 0.3s;
+  fill: rgb(178, 40, 40);
+  transition: all 0.3s;
 }

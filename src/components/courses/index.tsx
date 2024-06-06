@@ -4,7 +4,7 @@ import { Course as CourseComponent } from "../course";
 import type { Course } from "../../app/types";
 
 type Props = {
-    courses: Omit<Course, "questions">[]
+    courses: Course[]
 }
 
 export const Courses: FC<Props> = ({ courses }) => {
@@ -17,7 +17,10 @@ export const Courses: FC<Props> = ({ courses }) => {
                         id: course.id,
                         courseName: course.courseName,
                         courseImage: course.courseImage,
-                        theoreticalMaterials: course.theoreticalMaterials
+                        theoreticalMaterials: course.theoreticalMaterials,
+                        courseDescription: course.courseDescription,
+                        ResultsCourse: course.ResultsCourse,
+                        questions: course.questions
                     }}
                 />
             ))}

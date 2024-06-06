@@ -7,6 +7,7 @@ import { useProfsouzContext } from '../../hooks/useProfsouzContext';
 import styles from "./index.module.css";
 import { Loader } from '../loader';
 import { MemberInUnion } from '../memberInUnion';
+import { BASE_STATIC } from '../../constants';
 
 export const News = () => {
 
@@ -20,7 +21,7 @@ export const News = () => {
                 {news.map((newsData, idx) => (
                     <li className={styles.news__item} key={idx}>
                         <div className={styles.news__image}>
-                            <img src={`http://localhost:3000/uploads/news-images/${newsData.newsImage}`} alt={`image_${idx}`} />
+                            <img src={`${BASE_STATIC}/news-images/${newsData.newsImage}`} alt={`image_${idx}`} />
                         </div>
                         <div className={styles.news__info}>
                             <div className={styles.news__main_info}>
@@ -59,6 +60,7 @@ export const News = () => {
                         onChange={onChangeSelect}
                         value={getValue()}
                         options={memoizedOptions}
+                        isDisabled={isError}
                     />
                 </div>
             </div>

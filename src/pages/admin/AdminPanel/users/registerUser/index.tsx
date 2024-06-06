@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SVG } from "../../../../../components/svg";
@@ -7,6 +7,8 @@ import { Input } from "../../../../../components/input";
 import { useSignUpMutation } from "../../../../../app/services/userApi";
 import { hasErrorField } from "../../../../../utils/hasErrorField";
 import { showMessage } from "../../../../../utils/showMessage";
+import { useState } from "react";
+import Select from "react-select";
 
 type Register = {
     surname: string
@@ -18,6 +20,10 @@ type Register = {
     tel: string
     confirmPassword: string
     permission?: boolean
+    role: {
+        value: string,
+        label: string
+    }
 }
 
 const registerSchema = yup.object({
@@ -29,14 +35,26 @@ const registerSchema = yup.object({
     password: yup.string().required('Заполните обязательное поле').matches(/[a-zA-Z]/, 'Пароль может содержать только латинские буквы').min(8, 'Минимальное кол-во симовлов в пароле должно быть не меньше 8'),
     tel: yup.string().required('Заполните обязательное поле').matches(/^((\+7|7|8)+([0-9]){10})$/, 'Введите корректный номер телефона'),
     permission: yup.boolean().oneOf([true], "Пожалуйста, подтвердите согласие на обработку персональных данных"),
-    confirmPassword: yup.string().required("Заполните обязательное поле").oneOf([yup.ref("password")], "Пароли не совпадают")
+    confirmPassword: yup.string().required("Заполните обязательное поле").oneOf([yup.ref("password")], "Пароли не совпадают"),
+    role: yup.object().shape({
+        value: yup.string().required("Выбор роли сотрудника обязателен"),
+        label: yup.string().required(),
+    }).nullable().required('Выбор роли сотрудника обязателен')
 });
+
+const options = [
+    { value: 'USER', label: 'Пользователь' },
+    { value: 'MODERATOR', label: 'Модератор' },
+    { value: 'ADMIN', label: 'Администратор' }
+];
 
 export const RegisterUser = () => {
 
+    const [roleUser, setRoleUser] = useState("USER");
+
     const [signUp] = useSignUpMutation();
 
-    const { handleSubmit, formState: { errors }, reset, register } = useForm<Register>({
+    const { handleSubmit, formState: { errors }, reset, register, control } = useForm<Register>({
         defaultValues: {
             surname: "",
             userName: "",
@@ -46,7 +64,8 @@ export const RegisterUser = () => {
             password: "",
             tel: "",
             permission: false,
-            confirmPassword: ""
+            confirmPassword: "",
+            role: options.find(option => option.value === roleUser)!
         },
         resolver: yupResolver(registerSchema),
         mode: "onChange"
@@ -61,7 +80,8 @@ export const RegisterUser = () => {
                 position: data.position,
                 tel: data.tel,
                 email: data.email,
-                password: data.password
+                password: data.password,
+                role: data.role.value
             };
 
             await signUp(userData).unwrap();
@@ -73,6 +93,14 @@ export const RegisterUser = () => {
                 showMessage({ message: error.data.error, variantMessage: "error" });
             }
         }
+    }
+
+    const getValue = () => {
+        return roleUser ? options.find(option => option.value === roleUser) : undefined;
+    }
+
+    const handleChangeSelect = (newValue: any) => {
+        setRoleUser(newValue);
     }
 
     return (
@@ -151,6 +179,30 @@ export const RegisterUser = () => {
                                 iconID="email-icon"
                                 placeholder="petrov@yandex.ru"
                             />
+                            <div className={styles.select__wrapper}>
+                                <p>
+                                    <SVG id="role-icon"/>
+                                    Роль: 
+                                </p>
+                                <Controller
+                                    name="role"
+                                    control={control}
+                                    render={({ field }) => (
+                                        <Select
+                                            {...field}
+                                            isSearchable={false}
+                                            placeholder="Выберите роль сотрудника"
+                                            options={options}
+                                            value={getValue()}
+                                            onChange={(selectedOption) => {
+                                                field.onChange(selectedOption);
+                                                handleChangeSelect(selectedOption);
+                                            }}
+                                        />
+                                    )}
+                                />
+                                {errors.role?.value && <p className={styles.error__input_text}>{errors.role.value.message}</p>}
+                            </div>
                             <Input
                                 type="password"
                                 error={!!errors.password}

@@ -10,6 +10,7 @@ import { useState } from "react";
 import { CourseForm } from "../../../../../components/courseForm";
 import { type ResultsTest, type Course } from "../../../../../app/types";
 import { ResultsCourse } from "../../../../../components/resultsCourse";
+import { BASE_STATIC } from "../../../../../constants";
 
 export const CoursesActions = () => {
 
@@ -72,11 +73,12 @@ export const CoursesActions = () => {
                                 <li className={styles.course__item}>
                                     <div className={styles.courseInfo}>
                                         <div className={styles.course__image}>
-                                            <img src={`http://localhost:3000/uploads/course-materials/images/${course.courseImage}`} alt="" />
+                                            <img src={`${BASE_STATIC}/course-materials/images/${course.courseImage}`} alt="" />
                                         </div>
                                         <div className={styles.course__info}>
                                             <div className={styles.course__main_info}>
                                                 <h2>{course.courseName}</h2>
+                                                <p className={styles.courseDescription}>{course.courseDescription}</p>
                                             </div>
                                         </div>
                                     </div>

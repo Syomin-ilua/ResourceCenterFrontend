@@ -19,6 +19,7 @@
   align-items: center;
   justify-content: center;
   column-gap: 110px;
+  padding: 40px;
 }
 .greeting__text {
   text-align: justify;
@@ -26,13 +27,12 @@
 }
 .greeting__text_wrapper {
   background-color: #fff;
-  max-width: 681px;
   width: 100%;
   padding: 30px;
   border-radius: 10px;
 }
 .btn__link {
-  width: 155px;
+  width: 200px;
   height: 35px;
   display: flex;
   align-items: center;

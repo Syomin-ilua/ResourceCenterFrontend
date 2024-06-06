@@ -1,7 +1,7 @@
 import { useRef, useState, type FC } from "react"
-import { useEditBookMutation, type Book } from "../../app/services/booksApi"
+import { useEditBookMutation } from "../../app/services/booksApi"
 import styles from "./index.module.css";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { showMessage } from "../../utils/showMessage";
 import { hasErrorField } from "../../utils/hasErrorField";
@@ -9,21 +9,44 @@ import * as yup from "yup";
 import classNames from "classnames";
 import { Input } from "../input";
 import { SVG } from "../svg";
+import type { Book as BookType } from "../../app/types";
+import Select from "react-select"
 
-interface Props {
-    book: Required<Book> | null,
+type Props = {
+    book: Required<BookType> | null,
     onCloseModal: () => void,
 }
 
+type Book = {
+    nameBook: string
+    descriptionBook: string
+    categoryBook: {
+        value: string
+        label: string
+    }
+}
+
+const options = [
+    { value: "technical", label: "Технические" },
+    { value: "artistic", label: "Художественные" },
+    { value: "magazines", label: "Журналы" }
+];
+
 const bookShema = yup.object({
     nameBook: yup.string().required("Заполните обязательное поле").matches(/[а-яА-ЯёЁ]+/, "Вводить можно только русские буквы"),
-    descriptionBook: yup.string().required("Заполните обязательное поле").matches(/[а-яА-ЯёЁ]+/, "Вводить можно только русские буквы")
+    descriptionBook: yup.string().required("Заполните обязательное поле").matches(/[а-яА-ЯёЁ]+/, "Вводить можно только русские буквы"),
+    categoryBook: yup.object().shape({
+        value: yup.string().required("Выбор категории обязателен"),
+        label: yup.string().required(),
+    }).required('Выбор категории обязателен')
 });
 
 const allowedTypesImage = ["image/jpeg", "image/png", "image/webp"];
 const allowedTypesFile = ["application/pdf"];
 
 export const EditBook: FC<Props> = ({ book, onCloseModal }) => {
+
+    const [categoryBookState, setCategoryBookState] = useState(book?.categoryBook);
 
     const inputPdfRef = useRef<HTMLInputElement>(null!);
     const [pdfFile, setPdfFile] = useState<File | null>();
@@ -32,10 +55,11 @@ export const EditBook: FC<Props> = ({ book, onCloseModal }) => {
     const [bookImage, setBookImage] = useState<File | null>(null);
     const [imageURL, setImageURL] = useState<any>();
 
-    const { register, formState: { errors }, reset, handleSubmit } = useForm<Pick<Book, "nameBook" | "descriptionBook">>({
+    const { register, formState: { errors }, reset, handleSubmit, control } = useForm<Book>({
         defaultValues: {
             nameBook: book?.nameBook,
             descriptionBook: book?.descriptionBook,
+            categoryBook: options.find(option => option.value === categoryBookState)
         },
         resolver: yupResolver(bookShema),
         mode: "onSubmit"
@@ -89,17 +113,18 @@ export const EditBook: FC<Props> = ({ book, onCloseModal }) => {
         setPdfFile(null);
     }
 
-    const onSubmit = async (data: Pick<Book, "nameBook" | "descriptionBook">) => {
+    const onSubmit = async (data: Book) => {
         try {
 
             const formData = new FormData();
 
             book?.nameBook !== data.nameBook && formData.append("nameBook", data.nameBook);
             book?.descriptionBook !== data.descriptionBook && formData.append("descriptionBook", data.descriptionBook);
+            book?.categoryBook !== data.categoryBook.value && formData.append("categoryBook", data.categoryBook.value);
             bookImage && formData.append("bookPicture", bookImage);
             pdfFile && formData.append("bookFile", pdfFile);
 
-            await editBook({ editBook: formData, id: book!.id}).unwrap();
+            await editBook({ editBook: formData, id: book!.id }).unwrap();
 
             showMessage({ message: "Книга успешно обновлена", variantMessage: "success" });
             onCloseModal();
@@ -109,6 +134,14 @@ export const EditBook: FC<Props> = ({ book, onCloseModal }) => {
                 showMessage({ message: error.data.error, variantMessage: "error" })
             }
         }
+    }
+
+    const getValue = () => {
+        return categoryBookState ? options.find(c => c.value === categoryBookState) : undefined
+    }
+
+    const handleChangeSelect = (newValue: any) => {
+        setCategoryBookState(newValue)
     }
 
     return (
@@ -141,6 +174,26 @@ export const EditBook: FC<Props> = ({ book, onCloseModal }) => {
                         </textarea>
                     </label>
                     {errors.descriptionBook && <p className={styles.error__input_text}>{errors.descriptionBook.message}</p>}
+                </div>
+                <div className={styles.select__wrapper}>
+                    <p>Категория книги: </p>
+                    <Controller
+                        name="categoryBook"
+                        control={control}
+                        render={({ field }) => (
+                            <Select
+                                {...field}
+                                isSearchable={false}
+                                placeholder="Выберите категорию книги"
+                                options={options}
+                                value={getValue()}
+                                onChange={(selectedOption) => {
+                                    field.onChange(selectedOption);
+                                    handleChangeSelect(selectedOption);
+                                }}
+                            />
+                        )}
+                    />
                 </div>
                 <div className={styles.image__wrapper}>
                     <div className={styles.input__title_wrapper}>

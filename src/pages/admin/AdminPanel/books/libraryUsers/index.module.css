@@ -5,14 +5,15 @@
 .books {
   width: 100%;
 }
-.users__list {
+.library__cards {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
   width: 100%;
+  margin-top: 20px;
 }
 
-.book__item {
+.library__card {
   width: 100%;
   display: flex;
   align-items: center;
@@ -22,49 +23,53 @@
   border-radius: 10px;
   column-gap: 20px;
 }
-.bookInfo {
+.library__card_info {
   display: flex;
   align-items: flex-start;
   column-gap: 10px;
   max-width: 600px;
   width: 100%;
 }
-.book__info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  row-gap: 20px;
-  height: 169px;
+.user__image {
+  min-width: 110px;
+  height: 120px;
 }
-.book__image {
-  min-width: 160px;
-  height: 170px;
-}
-.book__image img {
+.user__image img {
   width: 100%;
   height: 100%;
   background-size: cover;
-  border-radius: 5px;
+  border-radius: 50%;
 }
-.book__info h2 {
+.libraryCard__main_info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+}
+.libraryCard__info {
+    display: flex;
+    align-items: stretch;
+    height: 120px;
+}
+
+.libraryCard__main_info h2 {
   font-size: 16px;
   font-weight: 700;
   color: #333;
   line-height: 20px;
 }
-.book__info p {
+.libraryCard__main_info p span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+}
+.libraryCard__main_info p {
   font-size: 12px;
   font-weight: 400;
   color: #9f9f9f;
-  line-height: 15px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
 }
 
-.btn__delete_book {
+.btnDeleteUserInLibrary {
   width: 35px;
   height: 35px;
   border-radius: 5px;
@@ -75,87 +80,31 @@
   transition: all 0.3s;
   border: 2px solid #cc0000;
 }
-.btn__edit_book {
-  width: 35px;
-  height: 35px;
-  border-radius: 5px;
-  background-color: #00528f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #00528f;
-  transition: all 0.3s;
-}
 
-.btn__edit_book svg {
-  width: 20px;
-  height: 20px;
-}
-
-.btn__delete_book svg {
+.btnDeleteUserInLibrary svg {
   width: 25px;
   height: 25px;
 }
 
-.btn__delete_book svg path {
+.btnDeleteUserInLibrary svg path {
   fill: #fff;
   transition: all 0.3s;
 }
 
-.btn__edit_book svg path {
-  fill: #fff;
-  transition: all 0.3s;
-}
-
-.btn__edit_book:hover {
+.btnDeleteUserInLibrary:hover {
   background-color: #fff;
   transition: all 0.3s;
 }
 
-.btn__edit_book:hover svg path {
-  fill: #00528f;
-  transition: all 0.3s;
-}
-
-.btn__delete_book:hover {
-  background-color: #fff;
-  transition: all 0.3s;
-}
-
-.btn__delete_book:hover svg path {
+.btnDeleteUserInLibrary:hover svg path {
   fill: #cc0000;
   transition: all 0.3s;
 }
 
-.actions__book {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-}
 .book__main_info {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-}
-.book__link {
-  width: 100%;
-  height: 35px;
-  background-color: #148f00;
-  color: #fff;
-  border: 2px solid #148f00;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 700;
-  transition: all 0.3s;
-}
-
-.book__link:hover {
-  background-color: #fff;
-  color: #148f00;
-  transition: all 0.3s;
 }
 
 .data__empty {

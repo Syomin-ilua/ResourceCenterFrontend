@@ -9,6 +9,7 @@ import { SVG } from "../../../../../components/svg";
 import { Modal } from "../../../../../components/modal";
 import { EditNews } from "../../../../../components/editNews";
 import { Loader } from "../../../../../components/loader";
+import { BASE_STATIC } from "../../../../../constants";
 
 export const NewsList = () => {
 
@@ -74,7 +75,7 @@ export const NewsList = () => {
                                 <li className={styles.book__item}>
                                     <div className={styles.bookInfo}>
                                         <div className={styles.book__image}>
-                                            <img src={`http://localhost:3000/uploads/news-images/${news.newsImage}`} alt="" />
+                                            <img src={`${BASE_STATIC}/news-images/${news.newsImage}`} alt="" />
                                         </div>
                                         <div className={styles.book__info}>
                                             <div className={styles.book__main_info}>

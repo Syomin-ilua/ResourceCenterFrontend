@@ -8,6 +8,7 @@ import { useDeleteUserInEventMutation } from "../../app/services/eventsApi";
 import { hasSuccessField } from "../../utils/hasSuccessField";
 import { useAppSelector } from "../../app/hooks";
 import { selectCurrent } from "../../features/user/userSlice";
+import { BASE_STATIC } from "../../constants";
 
 type Props = {
     participations: Participation[]
@@ -51,7 +52,7 @@ export const UsersEvent: FC<Props> = ({ participations = [], getAllEvents }) => 
                         <li className={styles.user__item}>
                             <div className={styles.userInfo}>
                                 <div className={styles.user__avatar}>
-                                    <img src={`http://localhost:3000/uploads/user-avatars/${participation.user.avatarURL}`} alt="" />
+                                    <img src={`${BASE_STATIC}/user-avatars/${participation.user.avatarURL}`} alt="" />
                                 </div>
                                 <div className={styles.user__info}>
                                     <div className={styles.user__main_info}>

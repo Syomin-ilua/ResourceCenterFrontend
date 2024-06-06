@@ -1,7 +1,7 @@
 import { useAppSelector } from "../../app/hooks";
 import { useAddUserProfsouzMutation } from "../../app/services/unionApi";
 import { useLazyCurrentQuery } from "../../app/services/userApi";
-import { selectUnion } from "../../features/user/userSlice";
+import { selectIsAuthenticated, selectUnion } from "../../features/user/userSlice";
 import { hasErrorField } from "../../utils/hasErrorField";
 import { hasSuccessField } from "../../utils/hasSuccessField";
 import { showMessage } from "../../utils/showMessage";
@@ -10,6 +10,7 @@ import styles from "./index.module.css";
 
 export const MemberInUnion = () => {
 
+    const isAuth = useAppSelector(selectIsAuthenticated);
     const union = useAppSelector(selectUnion);
 
     const [addInUnionUser] = useAddUserProfsouzMutation();
@@ -29,7 +30,9 @@ export const MemberInUnion = () => {
         }
     }
 
-    if (union!.length > 0) {
+    if (!isAuth) {
+        return "";
+    } else if (isAuth && union!.length > 0) {
         return (
             <div className={styles.unionSuccess}>
                 <p><SVG id="success-icon" />Вы состоите в профсоюзе</p>

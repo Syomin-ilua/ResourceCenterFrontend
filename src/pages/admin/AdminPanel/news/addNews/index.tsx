@@ -30,7 +30,7 @@ const allowedTypesImage = ["image/jpeg", "image/png", "image/webp"];
 
 export const AddNews = () => {
 
-    const [categoryNews, setCategoryNews] = useState("");
+    const [categoryNews, setCategoryNews] = useState("Производство");
 
     const inputFileRef = useRef<HTMLInputElement>(null!);
     const [newsImage, setNewsImage] = useState<File | null>(null);

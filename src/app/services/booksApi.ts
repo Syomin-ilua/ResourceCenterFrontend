@@ -16,10 +16,11 @@ export const courseApi = api.injectEndpoints({
                 method: "DELETE",
             })
         }),
-        getAllBooks: builder.query<Book[], { search?: string }>({
-            query: ({ search }) => {
+        getAllBooks: builder.query<Book[], { search?: string, categoryBook?: string }>({
+            query: ({ search, categoryBook }) => {
                 const params: { [key: string]: string | number } = {};
                 if (search) params.search = search;
+                if (categoryBook) params.categoryBook = categoryBook;
                 return {
                     url: `/books`,
                     method: "GET",

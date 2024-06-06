@@ -8,7 +8,7 @@ import type { Course } from "../../app/types";
 
 type TCoursesContext = {
     searchValue: string
-    coursesData: Omit<Course, "questions">[]
+    coursesData: Course[]
     isError: boolean
     isLoading: boolean
     handleSetSearchValue: (event: ChangeEvent<HTMLInputElement>) => void
@@ -35,7 +35,7 @@ export const CoursesContextProvider: FC<Props> = ({ children }) => {
     const [searchValue, setSearchValue] = useState(search);
     const debounceSearchValue = useDebounce(searchValue, 1000);
 
-    const [coursesData, setCoursesData] = useState<Omit<Course, "questions">[]>([]);
+    const [coursesData, setCoursesData] = useState<Course[]>([]);
 
     const { data, isLoading, isError } = useGetCoursesQuery({ search: debounceSearchValue });
     const [triggerGetCourses] = useLazyGetCoursesQuery();

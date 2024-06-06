@@ -4,8 +4,17 @@ import { useGetNewsByIdQuery } from "../../app/services/newsApi";
 import { normalizeDate } from "../../utils/normalizeDate";
 import { Back } from "../../components/back";
 import { Loader } from "../../components/loader";
+import { useEffect } from "react";
+import { BASE_STATIC } from "../../constants";
 
 export const CurrentNews = () => {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, []);
 
     const params = useParams();
 
@@ -42,7 +51,7 @@ export const CurrentNews = () => {
                             </div>
                             <div className={styles.news__info}>
                                 <div className={styles.news__image}>
-                                    <img src={`http://localhost:3000/uploads/news-images/${data.newsImage}`} alt="" />
+                                    <img src={`${BASE_STATIC}/news-images/${data.newsImage}`} alt="" />
                                 </div>
                                 <p>{data.newsDescription}</p>
                             </div>

@@ -1,5 +1,10 @@
 .edit__user_form {
 }
+.select__wrapper {
+  display: flex;
+  flex-direction: column; 
+  row-gap: 15px;  
+}
 
 .inputs__wrapper {
   width: 100%;

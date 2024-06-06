@@ -2,6 +2,7 @@ import { useDeleteUserInUnionMutation, useGetAllUserInUnionQuery, useLazyGetAllU
 import { useLazyCurrentQuery } from "../../../../app/services/userApi";
 import { Loader } from "../../../../components/loader";
 import { SVG } from "../../../../components/svg";
+import { BASE_STATIC } from "../../../../constants";
 import { hasErrorField } from "../../../../utils/hasErrorField";
 import { hasSuccessField } from "../../../../utils/hasSuccessField";
 import { showMessage } from "../../../../utils/showMessage";
@@ -58,7 +59,7 @@ export const Union = () => {
                     <li className={styles.user__item}>
                         <div className={styles.userInfo}>
                             <div className={styles.user__avatar}>
-                                <img src={`http://localhost:3000/uploads/user-avatars/${user.user.avatarURL}`} alt="" />
+                                <img src={`${BASE_STATIC}/user-avatars/${user.user.avatarURL}`} alt="" />
                             </div>
                             <div className={styles.user__info}>
                                 <div className={styles.user__main_info}>

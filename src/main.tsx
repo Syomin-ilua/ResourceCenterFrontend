@@ -14,7 +14,6 @@ import { Courses } from "./pages/courses"
 import { Course } from "./pages/course"
 import { Profile } from "./pages/profile"
 import { RequireAuth } from "./hoc/RequireAuth"
-import { CreateCourse } from "./pages/admin/AdminPanel/courses/create-course"
 import { CourseContextProvider } from "./pages/course/CourseContext"
 import { CoursesContextProvider } from "./pages/courses/CoursesContext"
 import { AdminPanel } from "./pages/admin/AdminPanel"
@@ -30,6 +29,8 @@ import { CurrentNews } from "./pages/news"
 import { News } from "./pages/admin/AdminPanel/news"
 import { Union } from "./pages/admin/AdminPanel/union"
 import { Events } from "./pages/admin/AdminPanel/events"
+import { Cultural } from "./pages/cultural"
+import { RequireRole } from "./hoc/RequireRole"
 
 const container = document.getElementById("root")
 
@@ -116,55 +117,49 @@ const router = createBrowserRouter([
     },
     {
         path: '/admin',
-        element: <Layout />,
+        element:
+            <RequireAuth>
+                <RequireRole>
+                    <Layout />
+                </RequireRole>
+            </RequireAuth>,
         children: [
             {
                 path: "users",
-                element: <RequireAuth>
+                element:
                     <AdminPanel>
                         <Users />
                     </AdminPanel>
-                </RequireAuth>
             },
             {
                 path: "courses",
-                element: <RequireAuth>
-                    <AdminPanel>
-                        <CoursesAdmin />
-                    </AdminPanel>
-                </RequireAuth>
+                element: <AdminPanel>
+                    <CoursesAdmin />
+                </AdminPanel>
             },
             {
                 path: "books",
-                element: <RequireAuth>
-                    <AdminPanel>
-                        <Books />
-                    </AdminPanel>
-                </RequireAuth>
+                element: <AdminPanel>
+                    <Books />
+                </AdminPanel>
             },
             {
                 path: "news",
-                element: <RequireAuth>
-                    <AdminPanel>
-                        <News />
-                    </AdminPanel>
-                </RequireAuth>
+                element: <AdminPanel>
+                    <News />
+                </AdminPanel>
             },
             {
                 path: "union",
-                element: <RequireAuth>
-                    <AdminPanel>
-                        <Union />
-                    </AdminPanel>
-                </RequireAuth>
+                element: <AdminPanel>
+                    <Union />
+                </AdminPanel>
             },
             {
                 path: "events",
-                element: <RequireAuth>
-                    <AdminPanel>
-                        <Events />
-                    </AdminPanel>
-                </RequireAuth>
+                element: <AdminPanel>
+                    <Events />
+                </AdminPanel>
             },
         ]
     },
@@ -181,6 +176,16 @@ const router = createBrowserRouter([
             {
                 path: "news/:id",
                 element: <CurrentNews />
+            }
+        ]
+    },
+    {
+        path: "/cultural",
+        element: <Layout />,
+        children: [
+            {
+                path: "",
+                element: <Cultural />
             }
         ]
     }

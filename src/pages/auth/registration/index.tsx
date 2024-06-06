@@ -51,6 +51,13 @@ export const Registration = () => {
         }
     }, [isAuthentificate]);
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, []);
+
     const { handleSubmit, formState: { errors }, reset, register } = useForm<Register>({
         defaultValues: {
             surname: "",
@@ -76,7 +83,8 @@ export const Registration = () => {
                 position: data.position,
                 tel: data.tel,
                 email: data.email,
-                password: data.password
+                password: data.password,
+                role: "USER"
             };
             
             await signUp(userData).unwrap(); 

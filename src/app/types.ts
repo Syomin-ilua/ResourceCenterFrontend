@@ -8,9 +8,18 @@ export interface User {
     tel: string
     password: string
     avatarURL: string
+    role: string
     adminType: Boolean,
     unions: Membership[]
     participation: Participation[]
+    libraryCard?: LibraryCard
+}
+
+export interface LibraryCard {
+    cardNumber: string
+    issueDate: Date
+    userId: string
+    user: User
 }
 
 export interface Answer {
@@ -60,6 +69,7 @@ export interface Book {
     nameBook: string
     nameBookLower: string
     descriptionBook: string
+    categoryBook: string
     imageBook: string
     fileBook: string
 }

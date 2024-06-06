@@ -3,10 +3,18 @@ import { SVG } from "../../components/svg";
 import { Courses as CoursesComponent } from "../../components/courses";
 import { useCoursesContext } from "../../hooks/useCoursesContext";
 import { Loader } from "../../components/loader";
+import { useEffect } from "react";
 
 export const Courses = () => {
 
     const { searchValue, handleSetSearchValue, isLoading, isError, coursesData } = useCoursesContext();
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, []);
 
     return (
         <div className={styles.courses}>

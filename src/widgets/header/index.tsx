@@ -19,6 +19,12 @@ export const Header = () => {
                             <ul className={styles.nav__list}>
                                 <li className={styles.nav__item}>
                                     <NavLink
+                                        linkURL="/"
+                                        icon="home-icon"
+                                    />
+                                </li>
+                                <li className={styles.nav__item}>
+                                    <NavLink
                                         linkURL="/profsouz"
                                         title="Профсоюзная организация"
                                         icon="profsouz-icon"
@@ -27,7 +33,7 @@ export const Header = () => {
                                 <li className={styles.nav__item}>
                                     <NavLink
                                         linkURL="/books"
-                                        title="Эл. библиотека"
+                                        title="Библиотека"
                                         icon="books-icon"
                                     />
                                 </li>
@@ -36,6 +42,13 @@ export const Header = () => {
                                         linkURL="/courses"
                                         title="Обучение"
                                         icon="courses-icon"
+                                    />
+                                </li>
+                                <li className={styles.nav__item}>
+                                    <NavLink
+                                        linkURL="/cultural"
+                                        title="Досуговый центр"
+                                        icon="sport-icon"
                                     />
                                 </li>
                             </ul>

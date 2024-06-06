@@ -6,25 +6,15 @@ import { showMessage } from "../../utils/showMessage";
 import { hasErrorField } from "../../utils/hasErrorField";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useEditUserAdminMutation } from "../../app/services/userApi";
+import type { User } from "../../app/types";
+import Select from "react-select";
 
 type Props = {
     onCloseModal: () => void,
-    user: TEditUser
+    user: User
 }
-
-export type TEditUser = {
-    id: string
-    surname: string
-    userName: string
-    patronymic: string
-    email: string
-    tel: string
-    position: string
-}
-
-type EditUser = Omit<TEditUser, "id">
 
 const editUserSchema = yup.object({
     surname: yup.string().required("Заполните обязательное поле").matches(/[а-яА-ЯёЁ]+/, "Вводить можно только русские буквы"),
@@ -33,11 +23,23 @@ const editUserSchema = yup.object({
     position: yup.string().required("Заполните обязательное поле").matches(/[а-яА-ЯёЁ]+/, "Вводить можно только русские буквы"),
     email: yup.string().required("Заполните обязательное поле").matches(/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i, "Введите корректную эл. почту"),
     tel: yup.string().required('Заполните обязательное поле').matches(/^((\+7|7|8)+([0-9]){10})$/, 'Введите корректный номер телефона'),
+    role: yup.object().shape({
+        value: yup.string().required("Выбор роли сотрудника обязателен"),
+        label: yup.string().required(),
+    }).nullable().required('Выбор роли сотрудника обязателен')
 });
+
+const options = [
+    { value: 'USER', label: 'Пользователь' },
+    { value: 'MODERATOR', label: 'Модератор' },
+    { value: 'ADMIN', label: 'Администратор' }
+];
 
 const allowedTypesImage = ["image/jpeg", "image/png", "image/webp"];
 
 export const EditUser: FC<Props> = ({ onCloseModal, user }) => {
+
+    const [roleUser, setRoleUser] = useState(user.role);
 
     const inputFileRef = useRef<HTMLInputElement>(null!);
     const [userImage, setUserImage] = useState<File | null>(null);
@@ -45,20 +47,21 @@ export const EditUser: FC<Props> = ({ onCloseModal, user }) => {
 
     const [updateUser] = useEditUserAdminMutation();
 
-    const { handleSubmit, register, formState: { errors } } = useForm<EditUser>({
+    const { handleSubmit, register, formState: { errors }, control } = useForm({
         defaultValues: {
             surname: user.surname,
             userName: user.userName,
             patronymic: user.patronymic,
             email: user.email,
             tel: user.tel,
-            position: user.position
+            position: user.position,
+            role: options.find(option => option.value === user.role)!
         },
         resolver: yupResolver(editUserSchema),
         mode: "onChange"
     });
 
-    const onSubmit = async (dataUser: EditUser) => {
+    const onSubmit = async (dataUser: any) => {
         try {
             const formData = new FormData();
             dataUser.surname !== user?.surname && formData.append("surname", dataUser.surname);
@@ -67,6 +70,7 @@ export const EditUser: FC<Props> = ({ onCloseModal, user }) => {
             dataUser.position !== user?.position && formData.append("position", dataUser.position);
             dataUser.email !== user?.email && formData.append("email", dataUser.email);
             dataUser.tel !== user?.tel && formData.append("tel", dataUser.tel);
+            dataUser.role.value !== user?.role && formData.append("role", dataUser.role.value);
             userImage && formData.append("userImage", userImage);
 
             await updateUser({ userData: formData, id: user.id }).unwrap();
@@ -104,6 +108,14 @@ export const EditUser: FC<Props> = ({ onCloseModal, user }) => {
 
     const removeFile = () => {
         setUserImage(null);
+    }
+
+    const getValue = () => {
+        return roleUser ? options.find(option => option.value === roleUser) : undefined;
+    }
+
+    const handleChangeSelect = (newValue: any) => {
+        setRoleUser(newValue);
     }
 
     return (
@@ -190,6 +202,27 @@ export const EditUser: FC<Props> = ({ onCloseModal, user }) => {
                     iconID="tel-icon"
                     placeholder="8 (999) 999-99-99"
                 />
+                <div className={styles.select__wrapper}>
+                    <p>Роль: </p>
+                    <Controller
+                        name="role"
+                        control={control}
+                        render={({ field }) => (
+                            <Select
+                                {...field}
+                                isSearchable={false}
+                                placeholder="Выберите роль сотрудника"
+                                options={options}
+                                value={getValue()}
+                                onChange={(selectedOption) => {
+                                    field.onChange(selectedOption);
+                                    handleChangeSelect(selectedOption);
+                                }}
+                            />
+                        )}
+                    />
+                    {errors.role?.value && <p className={styles.error__input_text}>{errors.role.value.message}</p>}
+                </div>
             </div>
             <div className={styles.edit__user_btn_wrapper}>
                 <button type="submit" className={styles.edit__user_btn}>

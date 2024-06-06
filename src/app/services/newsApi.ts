@@ -25,7 +25,7 @@ export const newsApi = api.injectEndpoints({
         }),
         getAllNews: builder.query<News[], { newsCategory?: string }>({
             query: ({ newsCategory }) => {
-                const params: { [key: string]: string | number } = {};
+                const params: { [key: string]: string } = {};
                 if (newsCategory) params.newsCategory = newsCategory;
                 return {
                     url: `/news`,

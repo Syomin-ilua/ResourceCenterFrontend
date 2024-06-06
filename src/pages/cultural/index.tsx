@@ -1,8 +1,8 @@
-import styles from "./index.module.css";
-import { News } from "../../components/news";
 import { useEffect } from "react";
+import { Sport } from "../../components/sport";
+import styles from "./index.module.css";
 
-export const Profsouz = () => {
+export const Cultural = () => {
 
     useEffect(() => {
         window.scrollTo({
@@ -12,9 +12,9 @@ export const Profsouz = () => {
     }, []);
 
     return (
-        <div className={styles.profsouz}>
+        <div className={styles.cultural}>
             <div className="container">
-                <News />
+                <Sport />
             </div>
         </div>
     )

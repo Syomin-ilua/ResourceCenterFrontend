@@ -5,6 +5,7 @@ import Reward from "../../assets/images/reward.png";
 import { Link } from "react-router-dom";
 import { SVG } from "../../components/svg";
 import Certificate from "../../assets/images/certificate.png";
+import { useEffect } from "react";
 
 interface IAdvatages {
     id: number,
@@ -41,6 +42,14 @@ const advantages: IAdvatages[] = [
 ];
 
 export const Main = () => {
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, []);
+
     return (
         <>
             <section className={styles.greeting}>
@@ -50,13 +59,12 @@ export const Main = () => {
                         <div className={styles.greeting__wrapp}>
                             <div className={styles.greeting__text_wrapper}>
                                 <p className={styles.greeting__text}>
-                                    Приветствуем вас в Ресурсном центре! Мы гордимся возможностью  поддержать сотрудников нашего завода в их стремлении к профессиональному росту. Наши курсы предоставят вам необходимые знания и навыки для успешной работы. Давайте вместе сделаем вашу команду еще сильнее!
+                                    Мы рады приветствовать вас на сайте, предназначенном для поддержки сотрудников ООО "Пластъ" в их профессиональном развитии. Здесь вы найдете актуальные новости, обучающие материалы, курсы с тестами для повышения квалификации, и многое другое. Наши ресурсы помогут вам приобрести необходимые знания и навыки для успешной работы.
                                 </p>
-                                <Link className={styles.btn__link} to="/zavod">
-                                    О заводе
+                                <Link className={styles.btn__link} to="/courses">
+                                    Пройти курс
                                 </Link>
                             </div>
-                            <img src={Reward} alt="Участник проекта 'Производительность.РФ'" />
                         </div>
                     </div>
                 </Container>

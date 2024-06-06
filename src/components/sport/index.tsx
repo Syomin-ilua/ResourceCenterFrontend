@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
 import { useExitEventMutation, useGetAllEventQuery, useJoinEventMutation, useLazyGetAllEventQuery } from "../../app/services/eventsApi";
-import { selectCurrent } from "../../features/user/userSlice";
+import { selectCurrent, selectIsAuthenticated } from "../../features/user/userSlice";
 import { hasErrorField } from "../../utils/hasErrorField";
 import { hasSuccessField } from "../../utils/hasSuccessField";
 import { showMessage } from "../../utils/showMessage";
@@ -12,11 +12,15 @@ import type { Participation } from "../../app/types";
 import { useState } from "react";
 import { Modal } from "../modal";
 import { Schedules } from "../schedules";
+import { BASE_STATIC } from "../../constants";
 
 
 export const Sport = () => {
 
+    const isAuth = useAppSelector(selectIsAuthenticated);
+
     const [isShowSchedules, setIsShowSchedules] = useState(false);
+    const [idxSchedulesData, setIdxSchedulesData] = useState(0);
 
     const { data, isLoading, isError, error } = useGetAllEventQuery();
 
@@ -43,6 +47,12 @@ export const Sport = () => {
     }
 
     const handleJoinEvent = async (id: number) => {
+
+        if (!isAuth) {
+            showMessage({ message: "Авторизутесь", variantMessage: "warning" });
+            return;
+        }
+
         try {
             const result = await joinEvent(id).unwrap();
             if (hasSuccessField(result)) {
@@ -59,6 +69,11 @@ export const Sport = () => {
     const getParticipation = (participations: Participation[]): number => {
         const participation = participations.find(user => user.userId === userData?.id);
         return participation!.id;
+    }
+
+    const handleShowSchedules = (idx: number) => {
+        setIdxSchedulesData(idx);
+        setIsShowSchedules(true);
     }
 
     return (
@@ -91,7 +106,7 @@ export const Sport = () => {
                                 <>
                                     <div className={styles.event}>
                                         <div className={styles.eventPicture}>
-                                            <img src={`http://localhost:3000/uploads/event-images/${eventData.eventPicture}`} alt="" />
+                                            <img src={`${BASE_STATIC}/event-images/${eventData.eventPicture}`} alt="" />
                                         </div>
                                         <div className={styles.eventInfo}>
                                             <div className={styles.main_info}>
@@ -106,18 +121,20 @@ export const Sport = () => {
                                                         (<button onClick={() => handleExitEvent(getParticipation(data[idx].participations!))} className={styles.exitEventBtn}>Выйти</button>) :
                                                         (<button onClick={() => handleJoinEvent(data[idx].id)} className={styles.joinEventBtn}>Записаться</button>)
                                                 }
-                                                <button onClick={() => setIsShowSchedules(true)} className={styles.link}>
+                                                <button onClick={() => handleShowSchedules(idx)} className={styles.link}>
                                                     <SVG id="events-icon" />
                                                     Узнать расписание
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <Modal className="schedules__modal" isVisible={isShowSchedules} onClose={() => setIsShowSchedules(false)}>
-                                        <Schedules onClose={() => setIsShowSchedules(false)} schedules={data[idx].schedules} />
-                                    </Modal>
                                 </>
                             ))}
+                            <Modal className="schedules__modal" isVisible={isShowSchedules} onClose={() => setIsShowSchedules(false)}>
+                                {isShowSchedules &&
+                                    <Schedules onClose={() => setIsShowSchedules(false)} schedules={data![idxSchedulesData].schedules} />
+                                }
+                            </Modal>
                         </div>
                     }
                 </div>

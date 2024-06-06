@@ -7,7 +7,7 @@ import classNames from "classnames";
 type Props = {
     linkURL: string
     icon: string
-    title: string
+    title?: string
 }
 
 export const Link: FC<Props> = ({ linkURL, icon, title }) => {
@@ -25,7 +25,7 @@ export const Link: FC<Props> = ({ linkURL, icon, title }) => {
             <div className={styles.link__icon}>
                 <SVG id={icon} />
             </div>
-            <p className={styles.link__title}>{title}</p>
+            {title && <p className={styles.link__title}>{title}</p>}
         </NavLink>
     )
 }

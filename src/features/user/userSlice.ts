@@ -40,3 +40,5 @@ export default slice.reducer;
 export const selectCurrent = (state: RootState) => state.user.current;
 export const selectIsAuthenticated = (state: RootState) => state.user.isAuthenticated;
 export const selectUnion = (state: RootState) => state.user.current?.unions
+export const selectLibraryCard = (state: RootState) => state.user.current?.libraryCard;
+export const selectUserId = (state: RootState) => state.user.current?.id ;

@@ -2,7 +2,7 @@ import type { User } from "../types";
 import { api } from "./api";
 
 type LoginUserData = Pick<User, "email" | "password">;
-type RegisterUserData = Omit<User, "adminType" | "avatarURL" | "certificates" | "id">
+type RegisterUserData = Omit<User, "adminType" | "avatarURL" | "unions" | "id" | "participation">
 
 export const userApi = api.injectEndpoints({
     endpoints: (builder) => ({

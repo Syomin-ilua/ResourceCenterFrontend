@@ -1,7 +1,8 @@
 import styles from "./index.module.css";
-import { type Book } from "../../app/services/booksApi";
+import type { Book } from "../../app/types";
 import type { FC } from "react";
 import { Link } from "react-router-dom";
+import { BASE_STATIC } from "../../constants";
 
 type Props = {
     booksData: Book[]
@@ -14,7 +15,7 @@ export const Books: FC<Props> = ({ booksData }) => {
                 <div className={styles.book}>
                     <div className={styles.book__info}>
                         <div className={styles.book__image}>
-                            <img src={`http://localhost:3000/uploads/books/images/${book.imageBook}`} alt="" />
+                            <img src={`${BASE_STATIC}/books/images/${book.imageBook}`} alt="" />
                         </div>
                         <div className={styles.book__main_info}>
                             <h1>{book.nameBook}</h1>

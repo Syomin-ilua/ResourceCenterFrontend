@@ -1,24 +1,46 @@
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Input } from "../../../../../components/input";
 import styles from "./index.module.css";
-import { useAddBookMutation, type Book } from "../../../../../app/services/booksApi";
+import { useAddBookMutation } from "../../../../../app/services/booksApi";
 import { useRef, useState } from "react";
 import { showMessage } from "../../../../../utils/showMessage";
 import { hasErrorField } from "../../../../../utils/hasErrorField";
 import classNames from "classnames";
 import { SVG } from "../../../../../components/svg";
+import Select from "react-select";
 
 const bookShema = yup.object({
     nameBook: yup.string().required("Заполните обязательное поле").matches(/[а-яА-ЯёЁ]+/, "Вводить можно только русские буквы"),
-    descriptionBook: yup.string().required("Заполните обязательное поле").matches(/[а-яА-ЯёЁ]+/, "Вводить можно только русские буквы")
+    descriptionBook: yup.string().required("Заполните обязательное поле").matches(/[а-яА-ЯёЁ]+/, "Вводить можно только русские буквы"),
+    categoryBook: yup.object().shape({
+        value: yup.string().required("Выбор категории обязателен"),
+        label: yup.string().required(),
+    }).required('Выбор категории обязателен')
 });
+
+const options = [
+    { value: "technical", label: "Технические" },
+    { value: "artistic", label: "Художественные" },
+    { value: "magazines", label: "Журналы" }
+];
+
+type Book = {
+    nameBook: string
+    descriptionBook: string
+    categoryBook: {
+        value: string
+        label: string
+    }
+}
 
 const allowedTypesImage = ["image/jpeg", "image/png", "image/webp"];
 const allowedTypesFile = ["application/pdf"];
 
 export const AddBook = () => {
+
+    const [categoryBookState, setCategoryBookState] = useState("");
 
     const inputPdfRef = useRef<HTMLInputElement>(null!);
     const [pdfFile, setPdfFile] = useState<File | null>();
@@ -27,16 +49,28 @@ export const AddBook = () => {
     const [bookImage, setBookImage] = useState<File | null>(null);
     const [imageURL, setImageURL] = useState<any>();
 
-    const { register, formState: { errors }, reset, handleSubmit } = useForm<Pick<Book, "nameBook" | "descriptionBook">>({
+    const { register, formState: { errors }, reset, handleSubmit, control } = useForm<Book>({
         defaultValues: {
             nameBook: "",
             descriptionBook: "",
+            categoryBook: {
+                value: "",
+                label: ""
+            }
         },
         resolver: yupResolver(bookShema),
         mode: "onSubmit"
     });
 
     const [addBook] = useAddBookMutation();
+
+    const getValue = () => {
+        return categoryBookState ? options.find(c => c.value === categoryBookState) : undefined
+    }
+
+    const handleChangeSelect = (newValue: any) => {
+        setCategoryBookState(newValue)
+    }
 
     const onChoiseFile = () => {
         inputFileRef?.current.click();
@@ -84,9 +118,9 @@ export const AddBook = () => {
         setPdfFile(null);
     }
 
-    const onSubmit = async (data: Pick<Book, "nameBook" | "descriptionBook">) => {
+    const onSubmit = async (data: Book) => {
         try {
-            
+
             const formData = new FormData();
 
             if (!bookImage) {
@@ -101,6 +135,7 @@ export const AddBook = () => {
 
             formData.append("nameBook", data.nameBook);
             formData.append("descriptionBook", data.descriptionBook);
+            formData.append("categoryBook", data.categoryBook.value);
             formData.append("bookPicture", bookImage);
             formData.append("bookFile", pdfFile);
 
@@ -118,11 +153,10 @@ export const AddBook = () => {
         }
     }
 
-
     return (
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form__add_book}>
             <div className={styles.add__book_title}>
-                <SVG id="books-icon"/> 
+                <SVG id="books-icon" />
                 <h2>Добавить книгу</h2>
             </div>
             <div className={styles.form__inputs}>
@@ -149,6 +183,25 @@ export const AddBook = () => {
                         </textarea>
                     </label>
                     {errors.descriptionBook && <p className={styles.error__input_text}>{errors.descriptionBook.message}</p>}
+                </div>
+                <div className={styles.select__wrapper}>
+                    <Controller
+                        name="categoryBook"
+                        control={control}
+                        render={({ field }) => (
+                            <Select
+                                {...field}
+                                isSearchable={false}
+                                placeholder="Выберите категорию книги"
+                                options={options}
+                                value={getValue()}
+                                onChange={(selectedOption) => {
+                                    field.onChange(selectedOption);
+                                    handleChangeSelect(selectedOption);
+                                }}
+                            />
+                        )}
+                    />
                 </div>
                 <div className={styles.image__wrapper}>
                     <div className={styles.input__title_wrapper}>

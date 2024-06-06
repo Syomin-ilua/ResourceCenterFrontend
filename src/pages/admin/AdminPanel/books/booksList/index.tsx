@@ -9,6 +9,7 @@ import { Modal } from "../../../../../components/modal";
 import { Link } from "react-router-dom";
 import { EditBook } from "../../../../../components/edit-book";
 import { Loader } from "../../../../../components/loader";
+import { BASE_STATIC } from "../../../../../constants";
 
 export const BooksActions = () => {
 
@@ -73,14 +74,14 @@ export const BooksActions = () => {
                                 <li className={styles.book__item}>
                                     <div className={styles.bookInfo}>
                                         <div className={styles.book__image}>
-                                            <img src={`http://localhost:3000/uploads/books/images/${book.imageBook}`} alt="" />
+                                            <img src={`${BASE_STATIC}/books/images/${book.imageBook}`} alt="" />
                                         </div>
                                         <div className={styles.book__info}>
                                             <div className={styles.book__main_info}>
                                                 <h2>{book.nameBook}</h2>
                                                 <p className={styles.position}>{book.descriptionBook}</p>
                                             </div>
-                                            <Link to={`books/${book.id}`} className={styles.book__link}>Читать</Link>
+                                            <Link to={`/books/${book.id}`} className={styles.book__link}>Читать</Link>
                                         </div>
                                     </div>
                                     <div className={styles.actions__book}>

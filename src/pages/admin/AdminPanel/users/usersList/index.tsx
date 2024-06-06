@@ -8,6 +8,7 @@ import styles from "./index.module.css";
 import { type TEditUser } from "../../../../../components/edit-user";
 import { EditUser } from "../../../../../components/edit-user";
 import { Loader } from "../../../../../components/loader";
+import { BASE_STATIC } from "../../../../../constants";
 
 export const UsersList = () => {
 
@@ -71,7 +72,7 @@ export const UsersList = () => {
                         <li className={styles.user__item}>
                             <div className={styles.userInfo}>
                                 <div className={styles.user__avatar}>
-                                    <img src={`http://localhost:3000/uploads/user-avatars/${user.avatarURL}`} alt="" />
+                                    <img src={`${BASE_STATIC}/user-avatars/${user.avatarURL}`} alt="" />
                                 </div>
                                 <div className={styles.user__info}>
                                     <div className={styles.user__main_info}>

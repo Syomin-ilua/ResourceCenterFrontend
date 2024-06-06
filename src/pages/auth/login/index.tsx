@@ -37,6 +37,13 @@ export const Login = () => {
         }
     }, [isAuthentificate]);
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }, []);
+
     const { handleSubmit, register, formState: { errors } } = useForm<Login>({
         defaultValues: {
             email: "",
@@ -65,7 +72,7 @@ export const Login = () => {
                 <div className={styles.login__wrapper}>
                     <div className={styles.title__wrapper}>
                         <SVG id="login-icon" />
-                        <h1 className={styles.title}>Авторизация в сервисе</h1>
+                        <h1 className={styles.title}>Авторизация</h1>
                     </div>
                     <form className={styles.login__form} onSubmit={handleSubmit(onSubmit)}>
                         <Input

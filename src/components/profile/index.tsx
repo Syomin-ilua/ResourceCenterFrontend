@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Modal } from "../modal";
 import { EditProfile } from "../edit-profile";
 import { useState } from "react";
+import { BASE_STATIC } from "../../constants";
 
 export const Profile = () => {
 
@@ -28,7 +29,7 @@ export const Profile = () => {
             <div className={styles.profile__wrapper}>
                 <div className={styles.user__info}>
                     <div className={styles.userAvatar__wrapper}>
-                        <img className={styles.userAvatar} src={`http://localhost:3000/uploads/user-avatars/${user?.avatarURL}`} alt="" />
+                        <img className={styles.userAvatar} src={`${BASE_STATIC}/user-avatars/${user?.avatarURL}`} alt="" />
                     </div>
                     <div className={styles.userInfo__wrapper}>
                         <div className={styles.main__info}>

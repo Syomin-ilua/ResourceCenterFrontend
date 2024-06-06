@@ -57,6 +57,7 @@
   color: #fff;
   font-weight: 700;
   margin-bottom: 15px;
+  text-align: right;
 }
 .links {
     display: flex;
@@ -67,6 +68,7 @@
     color: #fff;
     font-weight: 400;
     transition: all 0.3s;
+    text-align: right;
 }
 .link:hover {
     color: #c8c8c8;

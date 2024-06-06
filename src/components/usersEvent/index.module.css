@@ -11,6 +11,11 @@
   align-items: center;
   column-gap: 10px;
 }
+.participations {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
 .users__list {
   width: 100%;
   display: flex;
