@@ -81,6 +81,9 @@
   transition: all 0.3s;
   border: 2px solid #cc0000;
 }
+.btn__delete_user p {
+  display: none;
+}
 .btn__edit_user {
   width: 35px;
   height: 35px;
@@ -91,6 +94,9 @@
   align-items: center;
   border: 2px solid #00528f;
   transition: all 0.3s;
+}
+.btn__edit_user p {
+  display: none;
 }
 
 .btn__edit_user svg {
@@ -162,4 +168,72 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 600px) {
+  .user__item {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: flex-start;
+  }
+  .userInfo {
+    max-width: 100%;
+    justify-content: space-between;
+  }
+  .actions__user {
+    width: 100%;
+  }
+  .btn__edit_user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    color: #fff;
+    font-weight: 700;
+  }
+  .btn__delete_user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    color: #fff;
+    font-weight: 700;
+  }
+  .btn__edit_user:hover {
+    color: #00528f;
+    transition: all 0.3s;
+  }
+  .btn__delete_user:hover {
+    color: #cc0000;
+    transition: all 0.3s;
+  }
+  .btn__edit_user p {
+    display: flex;
+  }
+  .btn__delete_user p {
+    display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  .userInfo {
+    width: 100%;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .user__main_info h2 {
+    text-align: center;
+  }
+  .position {
+    justify-content: center;
+    text-align: center;
+  }
+  .contacts__info {
+    text-align: center;
+    justify-content: center;
+  }
+  .user__info {
+    row-gap: 15px;
+  }
 }

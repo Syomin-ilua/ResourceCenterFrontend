@@ -47,11 +47,11 @@ export const Profile = () => {
                 <div className={styles.user__actions}>
                     <button onClick={() => setIsVisible(true)} className={styles.edit__user}>
                         <SVG id="edit-user-icon" />
-                        Редактировать профиль
+                        <p>Редактировать профиль</p>
                     </button>
                     <button onClick={handleExitProfile} className={styles.exit__profile}>
                         <SVG id="exit-profile-icon" />
-                        Выйти из профиля
+                        <p>Выйти из профиля</p>
                     </button>
                 </div>
             </div>

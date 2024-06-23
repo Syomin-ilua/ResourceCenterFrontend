@@ -27,3 +27,13 @@
     align-items: center;
     column-gap: 10px;
 }
+
+@media(max-width: 900px) {
+    .books__actions {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+    .btnSelect {
+        width: 100%;
+    }
+}

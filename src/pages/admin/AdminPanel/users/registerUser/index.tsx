@@ -237,7 +237,7 @@ export const RegisterUser = () => {
                         </div>
                         <button className={styles.register__btn} type="submit">
                             <SVG id="register-icon" />
-                            Зарегистрировать сотрудника
+                            <p>Зарегистрировать сотрудника</p>
                         </button>
                     </div>
                 </form>

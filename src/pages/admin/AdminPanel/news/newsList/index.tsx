@@ -25,7 +25,7 @@ export const NewsList = () => {
         try {
             await deleteNews(id).unwrap();
             await triggerGetAllNews({}).unwrap();
-            showMessage({ message: "Книга успешно удалена", variantMessage: "success" });
+            showMessage({ message: "Новость успешно удалена", variantMessage: "success" });
         } catch (error) {
             if (hasErrorField(error)) {
                 showMessage({ message: error.data.error, variantMessage: "error" })
@@ -88,9 +88,11 @@ export const NewsList = () => {
                                     <div className={styles.actions__book}>
                                         <button onClick={() => handleDeleteNews(news.id)} className={styles.btn__delete_book}>
                                             <SVG id="delete-icon" />
+                                            <p>Удалить новость</p>
                                         </button>
                                         <button onClick={() => handleShowModalNewsUpdate(news)} className={styles.btn__edit_book}>
                                             <SVG id="register-icon" />
+                                            <p>Редактировать новость</p>
                                         </button>
                                     </div>
                                 </li>

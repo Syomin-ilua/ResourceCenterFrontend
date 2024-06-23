@@ -1,4 +1,5 @@
 import type { Answer, Question } from "../../app/types";
+import { showMessage } from "../../utils/showMessage";
 import { Questions } from "../questions";
 import { SVG } from "../svg";
 import styles from "./index.module.css";
@@ -31,6 +32,28 @@ export const QuestionsForm: FC<Props> = ({ questions, onAddQuestion, deleteQuest
     }
 
     const handleAddQuestion = () => {
+        if(currentQuestion.length < 10) {
+            showMessage({message: "Введите вопрос, минимальное кол-во символов 10", variantMessage: "warning"});
+            return;
+        }
+
+        if(currentAnswers.length < 3) {
+            showMessage({message: "Минимальное кол-во вариантов ответа 3", variantMessage: "warning"});
+            return;
+        }
+
+        currentAnswers.forEach(currentAnswer => {
+            if(!currentAnswer.length) {
+                showMessage({message: "Поля вариантов ответа не должны быть пустыми", variantMessage: "warning"});
+                return;
+            }
+        })
+
+        if(!correctAnswer.length) {
+            showMessage({message: "Введите правильный вариант ответа", variantMessage: "warning"});
+            return;
+        }
+
         onAddQuestion({
             text: currentQuestion,
             answers: currentAnswers,
@@ -53,6 +76,7 @@ export const QuestionsForm: FC<Props> = ({ questions, onAddQuestion, deleteQuest
                         className={styles.input}
                         onChange={(e) => setCurrentQuestion(e.target.value)} id='nameQuestion'
                         type="text"
+                        value={currentQuestion}
                     />
                 </label>
                 <div className={styles.inputs__answers_wrapper}>

@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: "/books",
+        path: "/library",
         element: <Layout />,
         children: [
             {

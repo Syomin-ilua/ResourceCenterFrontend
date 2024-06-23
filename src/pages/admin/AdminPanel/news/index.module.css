@@ -30,3 +30,12 @@
   background-color: #00528f;
   color: #fff;
 }
+@media(max-width: 900px) {
+  .news__actions {
+      flex-direction: column;
+      row-gap: 15px;
+  }
+  .btnSelect {
+      width: 100%;
+  }
+}

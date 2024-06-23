@@ -1,11 +1,11 @@
 .courses {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(250px, 300px));
+    grid-template-columns: repeat(3, minmax(200px, 300px));
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     margin-top: 30px;
-    row-gap: 40px;
+    gap: 25px;
 }
 
 .empty__courses {
@@ -19,4 +19,19 @@
     font-size: 16px;
     font-weight: 600;
     color: #333;
+}
+
+@media(max-width: 850px) {
+    .courses {
+        grid-template-columns: repeat(2, minmax(200px, 300px));
+    }
+}
+@media(max-width: 550px) {
+    .courses {
+        grid-template-columns: repeat(1, 100%);
+    }
+    .course__image_wrapper img {
+        height: 190px;
+        background-size: cover;
+    }
 }

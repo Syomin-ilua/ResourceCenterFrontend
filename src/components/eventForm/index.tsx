@@ -137,6 +137,11 @@ export const EventForm: FC<Props> = ({ typeForm, schedules = [], eventData = { n
             if (hasSuccessField(result)) {
                 showMessage({ message: result.message, variantMessage: "success" })
             }
+            reset();
+            setSchedules([]);
+            setIsEditing(false);
+            setEventImage(null);
+            setImageURL(null);
 
         } catch (error) {
             if (hasErrorField(error)) {

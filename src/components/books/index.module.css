@@ -1,7 +1,7 @@
 .books {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 300px));
+  grid-template-columns: repeat(3, minmax(230px, 300px));
   align-items: stretch;
   justify-content: space-between;
   gap: 20px;
@@ -87,4 +87,18 @@
   color: rgb(87, 162, 37);
   background-color: #fff;
   transition: all 0.3s;
+}
+
+
+
+@media (max-width: 815px) {
+  .books {
+    grid-template-columns: repeat(2, minmax(230px, 300px));
+  }
+}
+
+@media (max-width: 540px) {
+  .books {
+    grid-template-columns: repeat(1, 100%);
+  }
 }

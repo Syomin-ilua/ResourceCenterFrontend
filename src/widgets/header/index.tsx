@@ -26,13 +26,13 @@ export const Header = () => {
                                 <li className={styles.nav__item}>
                                     <NavLink
                                         linkURL="/profsouz"
-                                        title="Профсоюзная организация"
-                                        icon="profsouz-icon"
+                                        title="Новости"
+                                        icon="news-icon"
                                     />
                                 </li>
                                 <li className={styles.nav__item}>
                                     <NavLink
-                                        linkURL="/books"
+                                        linkURL="/library"
                                         title="Библиотека"
                                         icon="books-icon"
                                     />

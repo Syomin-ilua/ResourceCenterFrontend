@@ -96,3 +96,11 @@
   font-size: 12px;
   color: rgb(253, 54, 54);
 }
+@media(max-width: 380px) {
+  .register__btn svg {
+    display: none;
+  }
+  .title__wrapper {
+    justify-content: center;
+  }
+}

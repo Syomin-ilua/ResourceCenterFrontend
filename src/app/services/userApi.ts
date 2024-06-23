@@ -15,7 +15,7 @@ export const userApi = api.injectEndpoints({
         }),
         signUp: builder.mutation<User, RegisterUserData>({
             query: (userData) => ({
-                url: "/register",
+                url: "/users",
                 method: "POST",
                 body: userData
             })

@@ -16,7 +16,7 @@ export const libraryApi = api.injectEndpoints({
             })
         }),
         getAllLibraryCard: builder.query<LibraryCard[], void>({
-            query: (id) => ({
+            query: () => ({
                 url: `/library`,
                 method: "GET"
             })

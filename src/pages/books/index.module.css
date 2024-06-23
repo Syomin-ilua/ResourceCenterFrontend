@@ -58,3 +58,26 @@
   font-weight: 600;
   color: #333;
 }
+
+@media (max-width: 850px) {
+  .search__wrapper {
+    max-width: 100%;
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: flex-start;
+  }
+  .categoryBook {
+    max-width: 450px;
+  }
+  .search {
+    max-width: 100%;
+  }
+  .search__input {
+    width: 100%;
+  }
+  .top {
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: flex-start;
+  }
+}

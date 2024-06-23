@@ -119,15 +119,19 @@ export const EventsList = () => {
                                 <div className={styles.actions__book}>
                                     <button onClick={() => handleDeleteEvent(eventData.id)} className={styles.btn__delete_book}>
                                         <SVG id="delete-icon" />
+                                        <p>Удалить мероприятие</p>
                                     </button>
                                     <button onClick={() => handleShowModalParticipationsEvent(index)} className={styles.btn__users_event}>
                                         <SVG id="user-icon" />
+                                        <p>Участники мероприятия</p>
                                     </button>
                                     <button onClick={() => handleShowModalEventUpdate(eventData)} className={styles.btn__edit_event}>
                                         <SVG id="register-icon" />
+                                        <p>Редактировать меропритие</p>
                                     </button>
                                     <button onClick={() => handleShowModalSchedulesEvent(eventData.schedules)} className={styles.btn__edit_event}>
                                         <SVG id="events-icon" />
+                                        <p>Расписание меропрития</p>
                                     </button>
                                 </div>
                             </li>

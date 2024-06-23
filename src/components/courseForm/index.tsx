@@ -119,6 +119,7 @@ export const CourseForm: FC<Props> = ({ typeForm, course = { id: "", courseName:
 
             if (questionsData.length === 0) {
                 showMessage({ message: "Курс должен содержать в себе некое тестирование, добавьте вопросы", variantMessage: "warning" })
+                return;
             }
 
             if (!userImage) {
@@ -158,6 +159,12 @@ export const CourseForm: FC<Props> = ({ typeForm, course = { id: "", courseName:
 
     const updateCourse = async (data: MainInfoCourse) => {
         try {
+
+            if (questionsData.length === 0) {
+                showMessage({ message: "Курс должен содержать в себе некое тестирование, добавьте вопросы", variantMessage: "warning" })
+                return;
+            }
+
             const formData = new FormData();
 
             course.courseName !== data.courseName && formData.append("nameCourse", data.courseName);

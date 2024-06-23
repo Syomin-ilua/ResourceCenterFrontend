@@ -129,3 +129,47 @@
   fill: #cc0000;
   transition: all 0.3s;
 }
+.btn__delete_user p {
+  display: none;
+}
+
+@media(max-width: 800px) {
+  .user__item {
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: flex-start;
+  }
+  .actions__user {
+    width: 100%;
+  }
+  .btn__delete_user {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+  }
+  .btn__delete_user:hover p {
+    transition: all 0.3s;
+    color: #cc0000;
+  }
+  .btn__delete_user p {
+    display: flex;
+    color: #fff;
+    font-weight: 700;
+  }
+}
+
+@media(max-width: 500px) {
+  .userInfo {
+    flex-direction: column;
+    row-gap: 10px;
+    width: 100%;
+  }
+  .user__main_info h2 {
+    text-align: center;
+  }
+  .position {
+    text-align: center;
+  }
+}

@@ -188,3 +188,73 @@
   align-items: center;
   justify-content: center;
 }
+.btn__edit_book p {
+  display: none;
+}
+.btn__delete_book p {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .book__item {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: flex-start;
+  }
+  .actions__book {
+    width: 100%;
+  }
+  .btn__edit_book p {
+    display: flex;
+    color: #fff;
+    font-weight: 700;
+  }
+  .btn__delete_book p {
+    display: flex;
+    color: #fff;
+    font-weight: 700;
+  }
+  .btn__edit_book {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+  .btn__delete_book {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+  .btn__edit_book:hover p {
+    color: #00528f;
+    transition: all 0.3s;
+  }
+  .btn__delete_book:hover p {
+    color: #cc0000;
+    transition: all 0.3s;
+  }
+}
+
+@media (max-width: 665px) {
+  .book__item {
+    row-gap: 10px;
+  }
+  .bookInfo {
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+    max-width: 100%;
+  }
+  .book__info {
+    height: auto;
+    row-gap: 10px;
+    width: 100%;
+  }
+  .book__info h2 {
+    text-align: center;
+  }
+  .book__info p {
+    text-align: justify;
+  }
+}

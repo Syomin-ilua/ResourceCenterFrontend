@@ -47,7 +47,7 @@
     border-radius: 10px;
 }
 .course__tab_btn {
-    font-size: 16;
+    font-size: 13px;
     font-weight: 500;
     color: #333;
     padding: 15px 25px;
@@ -63,4 +63,13 @@
 .active__tab {
     background-color: #D9D9D9;
     transition: all 0.3s;
+}
+
+@media (max-width: 420px) {
+    .course__step_tabs {
+        height: 80px;
+    }
+    .course__tab_btn {
+        padding: 15px;
+    }
 }

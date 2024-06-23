@@ -39,7 +39,7 @@
   max-width: 250px;
   min-width: 250px;
   width: 100%;
-  height: 170px;
+  height: 190px;
 }
 .book__image img {
   width: 100%;
@@ -68,7 +68,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 6.5;
   -webkit-box-orient: vertical;
 }
 
@@ -233,4 +233,87 @@
 }
 
 .book__main_info {
+}
+
+.btn__edit_event p {
+  display: none;
+}
+.btn__users_event p {
+  display: none;
+}
+.btn__delete_book p {
+  display: none;
+}
+
+@media (max-width: 840px) {
+  .book__item {
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: flex-start;
+  }
+  .actions__book {
+    width: 100%;
+  }
+  .btn__edit_event p {
+    display: flex;
+  }
+  .btn__users_event p {
+    display: flex;
+  }
+  .btn__delete_book p {
+    display: flex;
+  }
+  .btn__edit_event {
+    width: 100%;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+  }
+  .btn__users_event {
+    width: 100%;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+  }
+  .btn__delete_book {
+    width: 100%;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+  }
+
+  .btn__users_event:hover {
+    transition: all 0.3s;
+    color: #148f00;
+  }
+
+  .btn__delete_book:hover {
+    transition: all 0.3s;
+    color: #cc0000;
+  }
+  .btn__edit_event:hover {
+    transition: all 0.3s;
+    color: #00528f;
+  }
+}
+
+@media (max-width: 700px) {
+  .bookInfo {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .book__image {
+    max-width: 100%;
+    min-width: 100%;
+    height: 230px;
+  }
 }

@@ -71,6 +71,7 @@ export const Union = () => {
                         <div className={styles.actions__user}>
                             <button onClick={() => handleDeleteUserInUnion(user.user.id)} className={styles.btn__delete_user}>
                                 <SVG id="delete-icon" />
+                                <p>Исключить сотрудника</p>
                             </button>
                         </div>
                     </li>

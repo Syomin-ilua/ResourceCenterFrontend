@@ -87,9 +87,11 @@ export const BooksActions = () => {
                                     <div className={styles.actions__book}>
                                         <button onClick={() => handleDeleteBook(book.id)} className={styles.btn__delete_book}>
                                             <SVG id="delete-icon" />
+                                            <p>Удалить книгу</p>
                                         </button>
                                         <button onClick={() => handleShowModalBookUpdate(book)} className={styles.btn__edit_book}>
                                             <SVG id="register-icon" />
+                                            <p>Редактировать книгу</p>
                                         </button>
                                     </div>
                                 </li>

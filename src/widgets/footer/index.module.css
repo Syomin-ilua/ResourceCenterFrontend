@@ -60,30 +60,48 @@
   text-align: right;
 }
 .links {
-    display: flex;
-    flex-direction: column;
-    row-gap: 7px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
 }
 .link {
-    color: #fff;
-    font-weight: 400;
-    transition: all 0.3s;
-    text-align: right;
+  color: #fff;
+  font-weight: 400;
+  transition: all 0.3s;
+  text-align: right;
 }
 .link:hover {
-    color: #c8c8c8;
-    transition: all 0.3s;
+  color: #c8c8c8;
+  transition: all 0.3s;
 }
 .bottom {
-    width: 100%;
-    border-top: 1px solid #fff;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-top: 30px;
+  width: 100%;
+  border-top: 1px solid #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 30px;
 }
 .footer__text {
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
-    text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .rightside {
+    display: none;
+  }
+  .support__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .support__link {
+    justify-content: center;
+  }
+  .top {
+    justify-content: center;
+  }
 }

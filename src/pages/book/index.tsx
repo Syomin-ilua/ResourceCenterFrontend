@@ -5,6 +5,7 @@ import { PDFViewer } from "../../components/PDFViewer";
 import { Loader } from "../../components/loader";
 import { useEffect } from "react";
 import { BASE_STATIC } from "../../constants";
+import { Back } from "../../components/back";
 
 const options = [
     { value: "technical", label: "Технические" },
@@ -35,6 +36,7 @@ export const Book = () => {
     return (
         <div className={styles.book}>
             <div className="container">
+                <Back/>
                 {isLoading && !isError && <div className={styles.loader}><Loader /></div>}
                 {!isLoading && isError && <div className={styles.error__content}>Произошла ошибка</div>}
                 {!isLoading && !isError &&

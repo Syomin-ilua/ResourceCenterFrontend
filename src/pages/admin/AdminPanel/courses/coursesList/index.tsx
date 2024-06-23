@@ -85,15 +85,19 @@ export const CoursesActions = () => {
                                     <div className={styles.actions__course}>
                                         <button onClick={() => handleDeleteCourse(course.id)} className={styles.btn__delete_course}>
                                             <SVG id="delete-icon" />
+                                            <p>Удалить курс</p>
                                         </button>
                                         <button onClick={() => handleUpdateCourse(course)} className={styles.btn__update_course}>
                                             <SVG id="register-icon" />
+                                            <p>Редактировать курс</p>
                                         </button>
                                         <button onClick={() => handleResultsCourse(idx)} className={styles.btn__update_course}>
                                             <SVG id="results-icon" />
+                                            <p>Результаты курса</p>
                                         </button>
                                         <Link to={`/courses/${course.id}`} className={styles.course__link}>
                                             <SVG id="link-icon" />
+                                            <p>Перейти к курсу</p>
                                         </Link>
                                     </div>
                                 </li>

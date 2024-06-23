@@ -30,3 +30,13 @@
     background-color: #00528F;
     color: #fff;
 }
+
+@media(max-width: 900px) {
+    .courses__actions {
+        flex-direction: column;
+        row-gap: 15px;
+    }
+    .btnSelect {
+        width: 100%;
+    }
+}

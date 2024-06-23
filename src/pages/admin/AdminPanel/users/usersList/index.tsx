@@ -5,7 +5,6 @@ import { SVG } from "../../../../../components/svg";
 import { hasErrorField } from "../../../../../utils/hasErrorField";
 import { showMessage } from "../../../../../utils/showMessage";
 import styles from "./index.module.css";
-import { type TEditUser } from "../../../../../components/edit-user";
 import { EditUser } from "../../../../../components/edit-user";
 import { Loader } from "../../../../../components/loader";
 import { BASE_STATIC } from "../../../../../constants";
@@ -13,7 +12,7 @@ import { BASE_STATIC } from "../../../../../constants";
 export const UsersList = () => {
 
     const [isShowModalUserUpdate, setIsShowModalUserUpdate] = useState(false);
-    const [updateUser, setUpdateUser] = useState<TEditUser>();
+    const [updateUser, setUpdateUser] = useState<any>();
 
     const { data, isLoading, isError } = useGetAllUsersQuery();
 
@@ -32,7 +31,7 @@ export const UsersList = () => {
         }
     }
 
-    const handleShowModalUserUpdate = (user: TEditUser) => {
+    const handleShowModalUserUpdate = (user: any) => {
         setUpdateUser(user);
         setIsShowModalUserUpdate(true);
     }
@@ -86,13 +85,15 @@ export const UsersList = () => {
                                 </div>
                             </div>
                             <div className={styles.actions__user}>
-                                {!user.adminType &&
+                                {user.role !== "ADMIN" &&
                                     <button onClick={() => handleDeleteUser(user.id)} className={styles.btn__delete_user}>
                                         <SVG id="delete-icon" />
+                                        <p>Удалить сотрудника</p>
                                     </button>
                                 }
                                 <button onClick={() => handleShowModalUserUpdate(user)} className={styles.btn__edit_user}>
                                     <SVG id="register-icon" />
+                                    <p>Редактировать сотрудника</p>
                                 </button>
                             </div>
                         </li>

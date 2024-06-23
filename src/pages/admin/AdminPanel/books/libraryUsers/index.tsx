@@ -75,6 +75,7 @@ export const LibraryUsers = () => {
                             <div className={styles.actions__library}>
                                 <button onClick={() => handleDeleteUserInLibrary(libraryCard.userId)} className={styles.btnDeleteUserInLibrary}>
                                     <SVG id="delete-icon" />
+                                    <p>Исключить сотрудника</p>
                                 </button>
                             </div>
                         </li>

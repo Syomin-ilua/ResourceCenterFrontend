@@ -158,3 +158,9 @@
   fill: #fff;
   transition: all 0.3s;
 }
+
+@media (max-width: 450px) {
+  .userName {
+    display: none;
+  }
+}

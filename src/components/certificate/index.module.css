@@ -20,30 +20,61 @@
   color: #333;
 }
 .results__info span {
-    font-weight: 700;
+  font-weight: 700;
 }
 .downoald__certificate {
-    height: 35px;
-    border-radius: 5px;
-    border: 2px solid #148F00;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 10px;
-    padding: 0px 20px;
-    background-color: #fff;
-    color: #148F00;
-    font-weight: 700;
-    transition: all 0.3s;
+  height: 35px;
+  border-radius: 5px;
+  border: 2px solid #148f00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  padding: 0px 20px;
+  background-color: #fff;
+  color: #148f00;
+  font-weight: 700;
+  transition: all 0.3s;
 }
 
 .downoald__certificate:hover {
-    background-color: #148F00;
-    color: #fff;
-    transition: all 0.3s;
+  background-color: #148f00;
+  color: #fff;
+  transition: all 0.3s;
 }
 
 .downoald__certificate:hover svg path {
-    fill: #fff;
-    transition: all 0.3s;
+  fill: #fff;
+  transition: all 0.3s;
+}
+
+@media(max-width: 900px) {
+  .certificate {
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: flex-start;
+  }
+}
+
+@media(max-width: 650px) {
+  .results__info {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 7px;
+    text-align: center;
+  }
+  .test__results {
+    width: 100%;
+  }
+  .downoald__certificate {
+    width: 100%;
+  }
+  .certificate__actions {
+    width: 100%;
+  }
+}
+@media (max-width: 370px) {
+  .downoald__certificate svg {
+      display: none;
+  }
 }

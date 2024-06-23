@@ -25,3 +25,19 @@
 .active {
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 1120px) {
+  .navLink {
+    flex-direction: column;
+    row-gap: 5px;
+  }
+  .navLink p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 850px) {
+  .navLink p {
+    display: none;
+  }
+}

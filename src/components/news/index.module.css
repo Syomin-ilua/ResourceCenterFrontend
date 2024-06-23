@@ -14,7 +14,7 @@
 
 .news__list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(500px, 550px));
+  grid-template-columns: repeat(2, minmax(450px, 550px));
   justify-content: space-between;
   align-items: center;
   gap: 20px;
@@ -139,4 +139,28 @@
   font-weight: 700;
   font-size: 16px;
   row-gap: 15px;
+}
+
+@media(max-width: 1100px) {
+  .news__image {
+    max-width: 150px;
+    min-width: 150px;
+  }
+  .news__list {
+    grid-template-columns: repeat(2, minmax(350px, 550px));
+  }
+}
+
+@media(max-width: 900px) {
+  .news__list {
+    grid-template-columns: repeat(1, 100%);
+  }
+}
+
+@media(max-width: 450px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 10px;
+  }
 }

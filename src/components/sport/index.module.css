@@ -40,10 +40,10 @@
 }
 .eventsWrapper {
   display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 350px));
+  grid-template-columns: repeat(3, minmax(250px, 350px));
   justify-content: space-between;
   gap: 20px;
-  align-items: center;
+  align-items: stretch;
 }
 .event {
   width: 100%;
@@ -53,6 +53,7 @@
   flex-direction: column;
   row-gap: 15px;
   border-radius: 5px;
+  justify-content: space-between;
 }
 .eventPicture {
   width: 100%;
@@ -176,6 +177,18 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 7.5;
   -webkit-box-orient: vertical;
+}
+
+@media(max-width: 900px) {
+  .eventsWrapper {
+    grid-template-columns: repeat(2, minmax(200px, 350px));
+  }
+}
+
+@media(max-width: 550px) {
+  .eventsWrapper {
+    grid-template-columns: repeat(1, 100%);
+  }
 }

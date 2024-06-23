@@ -28,10 +28,12 @@ export const MemberInLibrary = () => {
             }
         }
     }
+    console.log(libraryCard);
+    
 
     return (
         <div className={styles.memberInLibrary}>
-            {libraryCard !== null ? <>
+            {libraryCard !== null && libraryCard !== undefined ? <>
                 <SVG id="success-icon" />
                 <h2>Вы состоите в библиотеке</h2>
             </>

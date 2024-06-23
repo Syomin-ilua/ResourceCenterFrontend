@@ -133,3 +133,79 @@
   stroke: #fff;
   transition: all 0.3s;
 }
+
+@media (max-width: 1050px) {
+  .edit__user p {
+    display: none;
+  }
+  .edit__user {
+    width: 50px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .exit__profile p {
+    display: none;
+  }
+  .exit__profile {
+    width: 50px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .profile__wrapper {
+    padding: 20px;
+  }
+}
+@media (max-width: 750px) {
+  .profile__wrapper {
+    padding: 30px;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+  }
+  .user__actions {
+    width: 100%;
+  }
+  .user__info {
+    flex-direction: column;
+    row-gap: 15px;
+  }
+  .userInfo__wrapper {
+    align-items: center;
+  }
+  .position__text {
+    text-align: center;
+  }
+  .connection__link {
+    text-align: center;
+  }
+  .edit__user p {
+    display: flex;
+  }
+  .edit__user {
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .exit__profile p {
+    display: flex;
+  }
+  .exit__profile {
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .fio {
+    text-align: center;
+    line-height: 25px;
+  }
+  .connection__link {
+    line-height: 20px;
+  }
+}

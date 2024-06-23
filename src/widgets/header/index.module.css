@@ -89,3 +89,21 @@
   font-size: 16px;
   color: #00528f;
 }
+
+@media (max-width: 800px) {
+  .header {
+    height: 80px;
+  }
+}
+
+@media (max-width: 450px) {
+  .nav__list {
+    column-gap: 10px;
+  }
+  .button__link_login p {
+    display: none;
+  }
+  .button__link_login {
+    padding: 6px 6px;
+  }
+}

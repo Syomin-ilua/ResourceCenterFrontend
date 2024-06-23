@@ -84,3 +84,16 @@
 .admin__link_active {
   box-shadow: 2px 2px 2px 2px rgba(125, 125, 125, 0.5);
 }
+
+@media(max-width: 1080px) {
+  .admin__wrapper {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+  .admin__links {
+    max-width: 100%;
+    position: relative;
+    top: 0px;
+  }
+}
+

@@ -68,6 +68,7 @@ export const UsersEvent: FC<Props> = ({ participations = [], getAllEvents }) => 
                             <div className={styles.actions__user}>
                                 <button onClick={() => handleDeleteUserEvent(participation.id)} className={styles.btn__delete_user}>
                                     <SVG id="delete-icon" />
+                                    <p>Исключить сотрудника</p>
                                 </button>
                             </div>
                         </li>
