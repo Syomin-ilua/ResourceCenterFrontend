@@ -1,2 +1,2 @@
-export const BASE_URL = process.env.NODE_ENV === "production" ? "https://plast.onrender.com/" : "http://localhost:3000";
+export const BASE_URL = process.env.NODE_ENV === "production" ? "https://plast.onrender.com" : "http://localhost:3000";
 export const BASE_STATIC = process.env.NODE_ENV === "production" ? "https://plast.onrender.com/uploads" : "http://localhost:3000/uploads";
