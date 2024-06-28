@@ -1,8 +1,8 @@
 import styles from "./index.module.css";
-import { News } from "../../components/news";
+import { News as NewsComponent } from "../../components/news";
 import { useEffect } from "react";
 
-export const Profsouz = () => {
+export const News = () => {
 
     useEffect(() => {
         window.scrollTo({
@@ -14,7 +14,7 @@ export const Profsouz = () => {
     return (
         <div className={styles.profsouz}>
             <div className="container">
-                <News />
+                <NewsComponent />
             </div>
         </div>
     )
