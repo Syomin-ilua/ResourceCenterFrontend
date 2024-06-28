@@ -25,7 +25,7 @@ export const Header = () => {
                                 </li>
                                 <li className={styles.nav__item}>
                                     <NavLink
-                                        linkURL="/profsouz"
+                                        linkURL="/news"
                                         title="Новости"
                                         icon="news-icon"
                                     />
