@@ -174,3 +174,8 @@
   fill: #fff;
   transition: all 0.3s;
 }
+
+.error__input_text {
+  font-size: 12px;
+  color: red;
+}

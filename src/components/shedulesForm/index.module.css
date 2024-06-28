@@ -25,15 +25,25 @@
   background-color: #9d9d9d;
   transition: all 0.3s;
 }
+
 .timeEvent {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  column-gap: 10px;
+  row-gap: 10px;
+}
+.timeEventInputWrapper  {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
   display: flex;
   align-items: center;
   column-gap: 10px;
 }
-.timeEvent p {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
+.error__text_input {
+  color: red;
+  font-size: 12px;
 }
 
 .deleteDayShedule {
@@ -88,8 +98,15 @@
 }
 .day__select_label {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   column-gap: 10px;
+  row-gap: 10px;
+}
+.day__select_wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 .day__select_label p {
   font-size: 14px;

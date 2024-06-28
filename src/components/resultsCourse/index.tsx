@@ -5,7 +5,7 @@ import { hasErrorField } from "../../utils/hasErrorField";
 import { showMessage } from "../../utils/showMessage";
 import axios from "axios";
 import { saveAs } from "file-saver";
-import { BASE_URL } from "../../constants";
+import { BASE_STATIC, BASE_URL } from "../../constants";
 import { SVG } from "../svg";
 import { useDeleteResultMutation } from "../../app/services/resultsApi";
 import { hasSuccessField } from "../../utils/hasSuccessField";
@@ -15,10 +15,7 @@ type Props = {
     resultsCourse: ResultsTest[]
 }
 
-export const ResultsCourse: FC<Props> = ({ resultsCourse }) => {
-
-    console.log(resultsCourse);
-    
+export const ResultsCourse: FC<Props> = ({ resultsCourse }) => { 
 
     const [deleteResult] = useDeleteResultMutation();
     const [triggerGetAllCourses] = useLazyGetCoursesQuery();
@@ -70,7 +67,7 @@ export const ResultsCourse: FC<Props> = ({ resultsCourse }) => {
                             <div className={styles.user__info}>
                                 <div className={styles.user}>
                                     <div className={styles.user__avatar}>
-                                        <img src={`http://localhost:3000/uploads/user-avatars/${resultCourse.user?.avatarURL}`} alt="" />
+                                        <img src={`${BASE_STATIC}/user-avatars/${resultCourse.user?.avatarURL}`} alt="" />
                                     </div>
                                     <div className={styles.userInfo}>
                                         <h2>{resultCourse.user?.surname} {resultCourse.user?.userName} {resultCourse.user?.patronymic}</h2>

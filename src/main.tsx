@@ -23,11 +23,10 @@ import { CoursesAdmin } from "./pages/admin/AdminPanel/courses"
 import { BooksPage } from "./pages/books"
 import { BooksContextProvider } from "./pages/books/BooksContext"
 import { Book } from "./pages/book"
-import { Profsouz } from "./pages/profsouz"
-import { ProfsouzContextProvider } from "./pages/profsouz/ProfsouzContext"
-import { CurrentNews } from "./pages/news"
+import { Profsouz } from "./pages/news"
+import { ProfsouzContextProvider } from "./pages/news/NewsContext"
+import { CurrentNews } from "./pages/currentNews"
 import { News } from "./pages/admin/AdminPanel/news"
-import { Union } from "./pages/admin/AdminPanel/union"
 import { Events } from "./pages/admin/AdminPanel/events"
 import { Cultural } from "./pages/cultural"
 import { RequireRole } from "./hoc/RequireRole"
@@ -147,12 +146,6 @@ const router = createBrowserRouter([
                 path: "news",
                 element: <AdminPanel>
                     <News />
-                </AdminPanel>
-            },
-            {
-                path: "union",
-                element: <AdminPanel>
-                    <Union />
                 </AdminPanel>
             },
             {

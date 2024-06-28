@@ -14,7 +14,7 @@ export const Course: FC<Props> = ({ course }) => {
     return (
         <div className={styles.course}>
             <div className={styles.course__image_wrapper}>
-                <img src={`${BASE_STATIC}/course-materials/images/${course.courseImage}`} alt="" />
+                <img src={`${BASE_STATIC}/course-images/${course.courseImage}`} alt="" />
             </div>
             <div className={styles.name__course_wrapper}>
                 <h1 className={styles.name__course}>{course.courseName}</h1>

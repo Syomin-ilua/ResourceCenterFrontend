@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 export const timeValidator = yup.string().test(
     'is-valid-time',
-    '${path} is not a valid time (HH:MM)',
+    '${path} недопустимое значение времени',
     (value) => {
         if (!value) return false;
         const timeFormat = /^([01]\d|2[0-3]):([0-5]\d)$/;

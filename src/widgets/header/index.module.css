@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   column-gap: 20px;
+  list-style: none;
 }
 .desktop__nav {
   width: 100%;

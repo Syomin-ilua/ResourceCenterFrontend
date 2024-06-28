@@ -73,7 +73,7 @@ export const CoursesActions = () => {
                                 <li className={styles.course__item}>
                                     <div className={styles.courseInfo}>
                                         <div className={styles.course__image}>
-                                            <img src={`${BASE_STATIC}/course-materials/images/${course.courseImage}`} alt="" />
+                                            <img src={`${BASE_STATIC}/course-images/${course.courseImage}`} alt="" />
                                         </div>
                                         <div className={styles.course__info}>
                                             <div className={styles.course__main_info}>

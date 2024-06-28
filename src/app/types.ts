@@ -10,16 +10,7 @@ export interface User {
     avatarURL: string
     role: string
     adminType: Boolean,
-    unions: Membership[]
     participation: Participation[]
-    libraryCard?: LibraryCard
-}
-
-export interface LibraryCard {
-    cardNumber: string
-    issueDate: Date
-    userId: string
-    user: User
 }
 
 export interface Answer {
@@ -72,21 +63,6 @@ export interface Book {
     categoryBook: string
     imageBook: string
     fileBook: string
-}
-
-export interface Union {
-    id: number
-    name: string
-    description: string
-    members: Membership[]
-}
-
-export interface Membership {
-    id: number,
-    userId: string
-    unionId: number
-    user: User
-    union: Union
 }
 
 export interface Event {

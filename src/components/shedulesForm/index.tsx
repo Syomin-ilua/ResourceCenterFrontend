@@ -32,9 +32,9 @@ const dayOptions: DayOption[] = [
 ];
 
 const scheduleSchema = yup.object().shape({
-    dayOfWeekId: yup.string().required('День недели обязателен'),
-    startTime: timeValidator.required('Время начала меропрития обязательно к заполению'),
-    endTime: timeValidator.required('Время конца меропрития обязательно к заполению'),
+    dayOfWeekId: yup.string().required('Выберите день'),
+    startTime: timeValidator.required('Введите корректное время начала мероприятия'),
+    endTime: timeValidator.required('Введите корректное время конца мероприятия'),
 });
 
 
@@ -98,40 +98,49 @@ export const SchedulesForm: FC<Props> = memo(({ schedules = [], removeSchedule, 
             {isEditing ? (
                 <div className={styles.edit__shedule_day}>
                     <div className={styles.day__select_wrapper}>
-                        <label className={styles.day__select_label}>
-                            <p>День недели: </p>
-                            <select
-                                {...register("dayOfWeekId")}
-                                className={styles.selectDay}
-                            >
-                                <option value="" disabled>Выберите день недели</option>
-                                {availableDays.map(day => (
-                                    <option key={day.id} value={day.id}>{day.name}</option>
-                                ))}
-                            </select>
-                        </label>
+                        <div className={styles.day__select_wrapper}>
+                            <label className={styles.day__select_label}>
+                                <p>День недели: </p>
+                                <select
+                                    {...register("dayOfWeekId")}
+                                    className={styles.selectDay}
+                                >
+                                    <option value="" disabled>Выберите день недели</option>
+                                    {availableDays.map(day => (
+                                        <option key={day.id} value={day.id}>{day.name}</option>
+                                    ))}
+                                </select>
+                            </label>
+                            {errors.dayOfWeekId && <p className={styles.error__text_input}>{errors.dayOfWeekId.message}</p>}
+                        </div>
                     </div>
                     <div>
-                        <label className={styles.timeEvent}>
-                            <p>Начало меропрития:</p>
-                            <input
-                                type="text"
-                                {...register("startTime")}
-                                className={styles.timeSelect}
-                                placeholder="Введите время"
-                            />
-                        </label>
+                        <div className={styles.timeEvent}>
+                            <div className={styles.timeEventInputWrapper}>
+                                <p>Начало меропрития (часы:минуты):</p>
+                                <input
+                                    type="text"
+                                    {...register("startTime")}
+                                    className={styles.timeSelect}
+                                    placeholder="Введите время"
+                                />
+                            </div>
+                            {errors.startTime && <p className={styles.error__text_input}>{errors.startTime.message}</p>}
+                        </div>
                     </div>
                     <div>
-                        <label className={styles.timeEvent}>
-                            <p>Конец меропрития:</p>
-                            <input
-                                type="text"
-                                {...register("endTime")}
-                                className={styles.timeSelect}
-                                placeholder="Введите время"
-                            />
-                        </label>
+                        <div className={styles.timeEvent}>
+                            <div className={styles.timeEventInputWrapper}>
+                                <p>Конец меропрития (часы:минуты):</p>
+                                <input
+                                    type="text"
+                                    {...register("endTime")}
+                                    className={styles.timeSelect}
+                                    placeholder="Введите время"
+                                />
+                            </div>
+                            {errors.endTime && <p className={styles.error__text_input}>{errors.endTime.message}</p>}
+                        </div>
                     </div>
                     <button type="button" onClick={handleInnerSubmit(onSubmit)} className={styles.addNewDayShedule}>Добавить день</button>
                     <button className={styles.addNewDayShedule} type="button" onClick={setHideEdditingDay}>Убрать новый день</button>

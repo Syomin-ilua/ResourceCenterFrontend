@@ -48,10 +48,6 @@ export const AdminPanel: FC<Props> = ({ children }) => {
                                 <SVG id="news-icon" />
                                 Новости
                             </Link>
-                            <Link className={classNames(styles.admin__link, location.pathname === "/admin/union" && styles.admin__link_active)} to="/admin/union">
-                                <SVG id="profsouz-icon" />
-                                Профсоюз
-                            </Link>
                             <Link className={classNames(styles.admin__link, location.pathname === "/admin/events" && styles.admin__link_active)} to="/admin/events">
                                 <SVG id="events-icon" />
                                 Меропрития

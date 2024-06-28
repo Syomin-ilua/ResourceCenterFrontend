@@ -6,7 +6,6 @@ import { SVG } from "../../components/svg";
 import { useProfsouzContext } from '../../hooks/useProfsouzContext';
 import styles from "./index.module.css";
 import { Loader } from '../loader';
-import { MemberInUnion } from '../memberInUnion';
 import { BASE_STATIC } from '../../constants';
 
 export const News = () => {
@@ -48,7 +47,6 @@ export const News = () => {
                     <SVG id="news-icon" />
                     Новости
                 </h1>
-                <MemberInUnion />
             </div>
             <p style={{ marginBottom: 10 }}>Все актуальные новости предприятия будут публиковаться здесь</p>
             <div className={styles.actions}>

@@ -5,7 +5,6 @@ import { SVG } from "../../components/svg";
 import { useBooksContext } from "../../hooks/useBooksContext";
 import styles from "./index.module.css";
 import Select from "react-select";
-import { MemberInLibrary } from "../../components/memberInLibrary";
 
 export const BooksPage = () => {
 
@@ -37,7 +36,6 @@ export const BooksPage = () => {
                             />
                         </div>
                     </div>
-                    <MemberInLibrary />
                 </div>
                 {isLoading && !isError && <div className={styles.loader__wrapper}><Loader /></div>}
                 {!isLoading && isError && <div className="container">Произошла ошибка</div>}
